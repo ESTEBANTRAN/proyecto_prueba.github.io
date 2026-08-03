@@ -3,44 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portafolio Profesional de Esteban Aulestia - Desarrollador de Software especializándose en Flutter, C++, Java, Python y Desarrollo Web.">
-    <meta name="author" content="Esteban Aulestia">
-    <title>Esteban Aulestia | Software Developer Portfolio</title>
+    <meta name="description" content="Esteban Maximiliano Aulestia Andrade — Desarrollador de Software Full Stack AI-Augmented (PHP/Laravel, Next.js, Nest.js, Python, Anthropic MCP & LLMs).">
+    <meta name="author" content="Esteban Maximiliano Aulestia Andrade">
+    <title>Esteban Aulestia | Full Stack AI-Augmented Software Developer</title>
     
     <!-- Google Fonts & Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css?v=2.0">
+    <link rel="stylesheet" href="style.css?v=3.0">
 </head>
-<body id="top">
-    <!-- Interactive Background Particle Canvas -->
-    <canvas id="particles-canvas"></canvas>
-
-    <!-- Custom Glowing Mouse Cursor -->
-    <div class="custom-cursor"></div>
-    <div class="custom-cursor-follower"></div>
+<body>
+    <!-- Custom Sharp Industrial Cursor -->
+    <div class="tech-cursor"></div>
+    <div class="tech-cursor-dot"></div>
 
     <!-- Header Navigation -->
     <header class="header">
-        <div class="container nav">
-            <a href="#top" class="nav-brand">
-                <div class="logo-box">EA</div>
-                <span class="brand-text">Esteban Aulestia</span>
+        <div class="container nav-container">
+            <a href="#inicio" class="nav-brand">
+                <span class="brand-sq"></span>
+                <span class="brand-text">ESTEBAN AULESTIA</span>
             </a>
             
             <ul class="nav-menu">
-                <li><a href="#inicio" class="nav-link active">Inicio</a></li>
-                <li><a href="#sobre-mi" class="nav-link">Sobre Mí</a></li>
-                <li><a href="#habilidades" class="nav-link">Habilidades</a></li>
-                <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
-                <li><a href="#experiencia" class="nav-link">Experiencia</a></li>
-                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                <li><a href="#inicio" class="nav-link active">// INICIO</a></li>
+                <li><a href="#sobre-mi" class="nav-link">// PERFIL</a></li>
+                <li><a href="#proyectos" class="nav-link">// PROYECTOS</a></li>
+                <li><a href="#certificaciones" class="nav-link">// CERTIFICACIONES</a></li>
+                <li><a href="#habilidades" class="nav-link">// STACK</a></li>
+                <li><a href="#experiencia" class="nav-link">// TRAYECTORIA</a></li>
+                <li><a href="#contacto" class="nav-link">// CONTACTO</a></li>
             </ul>
 
             <div class="nav-actions">
-                <a href="CV_Aulestia_Andrade_Esteban_ATS2026_signed.pdf" class="btn-cv" target="_blank" download>
-                    <i class="fas fa-file-download"></i> Descargar CV
+                <a href="#contacto" class="btn-status">
+                    <span class="status-indicator"></span> TRABAJO REMOTO FULL-TIME
                 </a>
-                <button class="nav-toggle" aria-label="Abrir Menú">
+                <button class="nav-toggle" aria-label="Toggle Menu">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -53,210 +51,119 @@
     <section id="inicio" class="hero">
         <div class="container hero-grid">
             <div class="hero-content">
-                <div class="hero-badge">
-                    <span class="pulse-dot"></span> Disponible para proyectos & pasantías
+                <div class="tech-badge-pill">
+                    <div class="tech-badge-dot"></div>
+                    <span class="tech-badge-text">[TARIFAS NEARSHORE] // $10 – $12 / HR USD (UTC−5)</span>
                 </div>
+                
                 <h1 class="hero-title">
-                    Hola, soy <br>
-                    <span class="gradient-text">Esteban Aulestia</span>
+                    FULL STACK <br>
+                    <span class="highlight">AI-AUGMENTED</span> <br>
+                    DEVELOPER.
                 </h1>
+                
                 <h2 class="hero-subtitle">
-                    Especialista en <span class="typing-text"></span>
+                    Especialista en <span class="role-typing"></span>
                 </h2>
+                
                 <p class="hero-description">
-                    Desarrollador de Software apasionado por transformar ideas complejas en aplicaciones móviles, de escritorio y experiencias web intuitivas, eficientes y de alto impacto visual.
+                    Desarrollador de software con experiencia comprobada en la creación de sistemas gubernamentales y empresariales en producción real (Laravel, Next.js, Nest.js, Python, Node.js). <strong>Certificado en 10+ tecnologías Anthropic Claude API, MCP & Cloud AI.</strong>
                 </p>
-                <div class="hero-buttons">
-                    <a href="#proyectos" class="btn-primary">
-                        Explorar Proyectos <i class="fas fa-arrow-right"></i>
+                
+                <div class="hero-ctas">
+                    <a href="#proyectos" class="btn-yellow">
+                        VER PROYECTOS DESTACADOS <i class="fas fa-arrow-right"></i>
                     </a>
-                    <a href="#contacto" class="btn-secondary">
-                        <i class="fas fa-paper-plane"></i> Contactar
+                    <a href="CV_Aulestia_Andrade_Esteban_ATS2026_signed.pdf" target="_blank" class="btn-outline" download>
+                        DESCARGAR CV (PDF) &gt;
                     </a>
                 </div>
             </div>
 
-            <!-- Profile Photo (Backgroundless Cutout with Dynamic Glow) -->
-            <div class="hero-image-wrapper">
-                <div class="photo-glow-effect"></div>
-                <div class="photo-frame">
-                    <img src="profile_no_bg.png" alt="Esteban Aulestia" class="profile-cutout">
-                </div>
-
-                <!-- Floating Interactive Tech Tags -->
-                <div class="hero-tech-tag tag-flutter">
-                    <i class="fab fa-flutter" style="color: #47d5ff;"></i> Flutter Cross-Platform
-                </div>
-                <div class="hero-tech-tag tag-cpp">
-                    <i class="fas fa-code" style="color: #00599c;"></i> C++ & Systems
-                </div>
-                <div class="hero-tech-tag tag-java">
-                    <i class="fab fa-java" style="color: #f89820;"></i> Java & Architecture
-                </div>
-                <div class="hero-tech-tag tag-web">
-                    <i class="fab fa-js" style="color: #f7df1e;"></i> Modern Web Fullstack
+            <!-- Profile Photo Industrial Frame -->
+            <div class="profile-industrial-wrapper">
+                <div class="industrial-frame">
+                    <div class="frame-top-bar">
+                        <span>SYS.ID // EA-2026</span>
+                        <span class="spec-tag">FULLSTACK FRONTEND & BACKEND</span>
+                    </div>
+                    
+                    <div class="profile-img-container">
+                        <img src="profile_no_bg.png" alt="Esteban Maximiliano Aulestia Andrade" class="profile-cutout">
+                    </div>
+                    
+                    <div class="frame-bottom-bar">
+                        <span><i class="fas fa-map-marker-alt" style="color: var(--accent-yellow);"></i> Otavalo / Ibarra, Ecuador</span>
+                        <span>10+ CERTIFICACIONES AI</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sobre Mí Section -->
+    <!-- Sobre Mí / Perfil Section -->
     <section id="sobre-mi" class="section">
         <div class="container">
-            <div class="section-header">
-                <p class="section-subtitle">Conóceme Más</p>
-                <h2 class="section-title">Sobre Mí</h2>
-                <div class="title-line"></div>
-            </div>
+            <div class="section-tag">RESUMEN PROFESIONAL</div>
+            <h2 class="section-title">PERFIL & ENFOQUE TÉCNICO</h2>
 
-            <div class="about-card-wrapper">
-                <div class="glass-box about-text">
+            <div class="about-grid">
+                <div class="tech-panel">
                     <p>
-                        Soy estudiante de <strong>Ingeniería en Sistemas</strong> en el Instituto Tecnológico Superior Ibarra y desarrollador de software enfocado en crear soluciones tecnológicas eficientes, elegantes y con alto valor funcional.
+                        Soy <strong>Esteban Maximiliano Aulestia Andrade</strong>, Desarrollador de Software graduado en el <strong>Instituto Tecnológico Superior Ibarra (ITSI)</strong>. Me especializo en el desarrollo Full Stack (Frontend & Backend) potenciado con inteligencia artificial (**AI-Augmented Software Development**).
                     </p>
                     <p>
-                        Actualmente realizo mi pasantía en el <strong>Instituto Tecnológico Superior Ibarra</strong>, donde participo activamente en el diseño e implementación de sistemas de software institucional y desarrollo de aplicaciones cross-platform.
+                        Cuento con experiencia directa construyendo e implementando aplicaciones en producción para entidades públicas del Ecuador como <strong>MOVIDELNOR E.P.</strong> (sistema OSGO v3.0 para coordinación de tránsito en 96 calles) y el <strong>GAD Municipal de Ibarra</strong> (App Móvil de empadronamiento digital).
                     </p>
                     <p>
-                        Mi pasión abarca desde el desarrollo móvil nativo/multiplataforma con <strong>Flutter</strong> y <strong>React Native</strong>, hasta la programación gráfica con <strong>C++ y OpenGL</strong>, pasando por la creación de sistemas web robustos.
+                        Acredito <strong>10+ certificaciones de Anthropic, Google Cloud y AWS</strong> en integración de LLMs, Claude API, Model Context Protocol (MCP), AI Agents y Subagents. Disponible para trabajo remoto Full-Time desde Ecuador en horario UTC−5 (compatible directo con EE.UU. / Canadá) sin fricción de conversión de divisas.
                     </p>
 
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <span class="stat-number" data-target="9">0</span>
-                            <span class="stat-label">Repositorios GitHub</span>
+                    <div class="stats-row">
+                        <div class="stat-box">
+                            <span class="stat-num" data-target="10">0</span>
+                            <span class="stat-lbl">Certificaciones AI</span>
                         </div>
-                        <div class="stat-item">
-                            <span class="stat-number" data-target="15">0</span>
-                            <span class="stat-label">Tecnologías</span>
+                        <div class="stat-box">
+                            <span class="stat-num" data-target="96">0</span>
+                            <span class="stat-lbl">Calles en OSGO v3.0</span>
                         </div>
-                        <div class="stat-item">
-                            <span class="stat-number" data-target="3">0</span>
-                            <span class="stat-label">Logros Destacados</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="about-highlight-box">
-                    <div class="info-card">
-                        <div class="info-icon">
-                            <i class="fas fa-bullseye"></i>
-                        </div>
-                        <div class="info-content">
-                            <h4>Enfoque Profesional</h4>
-                            <p>Desarrollo móvil multiplataforma, aplicaciones de escritorio y soluciones web completas.</p>
-                        </div>
-                    </div>
-
-                    <div class="info-card">
-                        <div class="info-icon" style="background: rgba(139, 92, 246, 0.15); color: var(--accent-purple);">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <div class="info-content">
-                            <h4>Formación Superior</h4>
-                            <p>Ingeniería en Sistemas — Instituto Tecnológico Superior Ibarra (Ibarra, Ecuador).</p>
-                        </div>
-                    </div>
-
-                    <div class="info-card">
-                        <div class="info-icon" style="background: rgba(236, 72, 153, 0.15); color: var(--accent-pink);">
-                            <i class="fas fa-gamepad"></i>
-                        </div>
-                        <div class="info-content">
-                            <h4>Proyectos Creativos</h4>
-                            <p>Desarrollo de videojuegos interactivos, Game Jams y contribución a iniciativas open source.</p>
+                        <div class="stat-box">
+                            <span class="stat-num" data-target="12">0</span>
+                            <span class="stat-lbl">$/Hr Tarifa Nearshore</span>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Habilidades Técnicas Section -->
-    <section id="habilidades" class="section">
-        <div class="container">
-            <div class="section-header">
-                <p class="section-subtitle">Stack de Tecnologías</p>
-                <h2 class="section-title">Habilidades Técnicas</h2>
-                <div class="title-line"></div>
-            </div>
-
-            <div class="skills-container">
-                <!-- Lenguajes -->
-                <div class="skill-category-card">
-                    <h3 class="skill-category-title">
-                        <i class="fas fa-code"></i> Lenguajes de Programación
-                    </h3>
-                    <div class="skill-tags">
-                        <div class="skill-chip"><i class="fas fa-cubes"></i> C++</div>
-                        <div class="skill-chip"><i class="fab fa-java"></i> Java</div>
-                        <div class="skill-chip"><i class="fab fa-python"></i> Python</div>
-                        <div class="skill-chip"><i class="fab fa-php"></i> PHP</div>
-                        <div class="skill-chip"><i class="fab fa-js"></i> JavaScript</div>
+                <div class="highlights-column">
+                    <div class="spec-card">
+                        <div class="spec-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div class="spec-info">
+                            <h4>Backend & Web Architecture</h4>
+                            <p>Desarrollo robusto con PHP (Laravel, CodeIgniter), Node.js, Nest.js, Next.js y Python.</p>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Desarrollo Móvil -->
-                <div class="skill-category-card">
-                    <h3 class="skill-category-title">
-                        <i class="fas fa-mobile-alt"></i> Desarrollo Móvil
-                    </h3>
-                    <div class="skill-tags">
-                        <div class="skill-chip"><i class="fab fa-flutter"></i> Flutter</div>
-                        <div class="skill-chip"><i class="fab fa-react"></i> React Native</div>
-                        <div class="skill-chip"><i class="fas fa-layer-group"></i> Framework7</div>
+                    <div class="spec-card">
+                        <div class="spec-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="spec-info">
+                            <h4>AI & LLM Integration</h4>
+                            <p>Model Context Protocol (MCP), Claude API, Anthropic SDK, Agents & Workflows en Vertex AI y Bedrock.</p>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Desarrollo Web -->
-                <div class="skill-category-card">
-                    <h3 class="skill-category-title">
-                        <i class="fas fa-laptop-code"></i> Desarrollo Web
-                    </h3>
-                    <div class="skill-tags">
-                        <div class="skill-chip"><i class="fab fa-html5"></i> HTML5</div>
-                        <div class="skill-chip"><i class="fab fa-css3-alt"></i> CSS3</div>
-                        <div class="skill-chip"><i class="fab fa-bootstrap"></i> Bootstrap</div>
-                        <div class="skill-chip"><i class="fab fa-wordpress"></i> WordPress</div>
-                        <div class="skill-chip"><i class="fas fa-server"></i> Apache</div>
-                    </div>
-                </div>
-
-                <!-- Bases de Datos -->
-                <div class="skill-category-card">
-                    <h3 class="skill-category-title">
-                        <i class="fas fa-database"></i> Bases de Datos
-                    </h3>
-                    <div class="skill-tags">
-                        <div class="skill-chip"><i class="fas fa-database"></i> MySQL</div>
-                        <div class="skill-chip"><i class="fas fa-server"></i> MariaDB</div>
-                        <div class="skill-chip"><i class="fas fa-fire"></i> Firebase</div>
-                    </div>
-                </div>
-
-                <!-- Cloud & Herramientas -->
-                <div class="skill-category-card">
-                    <h3 class="skill-category-title">
-                        <i class="fas fa-tools"></i> Herramientas & Cloud
-                    </h3>
-                    <div class="skill-tags">
-                        <div class="skill-chip"><i class="fab fa-git-alt"></i> Git</div>
-                        <div class="skill-chip"><i class="fab fa-docker"></i> Docker</div>
-                        <div class="skill-chip"><i class="fab fa-google"></i> Google Cloud</div>
-                        <div class="skill-chip"><i class="fab fa-microsoft"></i> Azure</div>
-                    </div>
-                </div>
-
-                <!-- Diseño & Multimedia -->
-                <div class="skill-category-card">
-                    <h3 class="skill-category-title">
-                        <i class="fas fa-paint-brush"></i> Diseño & Multimedia
-                    </h3>
-                    <div class="skill-tags">
-                        <div class="skill-chip"><i class="fab fa-figma"></i> Figma</div>
-                        <div class="skill-chip"><i class="fas fa-vector-square"></i> Illustrator</div>
-                        <div class="skill-chip"><i class="fas fa-palette"></i> Canva</div>
-                        <div class="skill-chip"><i class="fas fa-shapes"></i> OpenGL</div>
+                    <div class="spec-card">
+                        <div class="spec-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="spec-info">
+                            <h4>Civic Tech & DevSecOps</h4>
+                            <p>Firmas digitales, autenticación por roles en tiempo real y manejo de datos a escala gubernamental.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -266,32 +173,106 @@
     <!-- Proyectos Destacados Section -->
     <section id="proyectos" class="section">
         <div class="container">
-            <div class="section-header">
-                <p class="section-subtitle">Mi Trabajo</p>
-                <h2 class="section-title">Proyectos Destacados</h2>
-                <div class="title-line"></div>
-            </div>
+            <div class="section-tag">CASOS DE ÉXITO & PORTAFOLIO</div>
+            <h2 class="section-title">PROYECTOS DESTACADOS</h2>
 
             <div class="projects-grid">
-                <!-- Veci App -->
-                <div class="project-card">
-                    <div class="project-banner">
-                        <i class="fas fa-users-cog"></i>
+                <!-- OSGO v3.0 (MOVIDELNOR E.P.) -->
+                <div class="project-card featured-card">
+                    <div class="project-header-bar">
+                        <span class="project-code-id">PROJ_01 // PRODUCCIÓN GOV</span>
+                        <i class="fas fa-traffic-light" style="color: var(--accent-yellow);"></i>
                     </div>
                     <div class="project-body">
-                        <h3 class="project-title">Veci App</h3>
+                        <h3 class="project-name">OSGO v3.0 — MOVIDELNOR E.P.</h3>
                         <p class="project-desc">
-                            Aplicación móvil enfocada en la comunicación comunitaria y conectividad de vecindarios, optimizando la interacción y reportes vecinales.
+                            Sistema Web en producción para MOVIDELNOR E.P. que coordina operaciones de movilidad y tránsito en 96 calles de Ibarra. Incluye asignación de personal operativo, planificación de servicios especiales y módulo de firmas digitales para aprobación de órdenes de servicio en tiempo real.
                         </p>
-                        <div class="project-tech-stack">
-                            <span class="tech-badge">HTML5</span>
-                            <span class="tech-badge">CSS3</span>
-                            <span class="tech-badge">JavaScript</span>
-                            <span class="tech-badge">Mobile</span>
+                        <div class="project-stack">
+                            <span class="stack-item">PHP / Laravel</span>
+                            <span class="stack-item">MySQL</span>
+                            <span class="stack-item">Firmas Digitales</span>
+                            <span class="stack-item">Agile / Scrum</span>
+                            <span class="stack-item">DevSecOps</span>
                         </div>
                         <div class="project-footer">
-                            <a href="https://github.com/ESTEBANTRAN/veci_app2" target="_blank" class="project-link-btn">
-                                <i class="fab fa-github"></i> Código en GitHub <i class="fas fa-external-link-alt"></i>
+                            <span class="btn-project-link">
+                                MOVIDELNOR E.P. <i class="fas fa-check-circle" style="color: var(--accent-green);"></i> En Producción
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GIBI-ITSI -->
+                <div class="project-card featured-card">
+                    <div class="project-header-bar">
+                        <span class="project-code-id">PROJ_02 // BIENESTAR ACADÉMICO</span>
+                        <i class="fas fa-university" style="color: var(--accent-yellow);"></i>
+                    </div>
+                    <div class="project-body">
+                        <h3 class="project-name">GIBI-ITSI — Sistema Académico</h3>
+                        <p class="project-desc">
+                            Sistema Web Académico para la gestión integral del Departamento de Bienestar Institucional del ITSI. Lideré el ciclo completo del proyecto: levantamiento de requisitos, arquitectura MVC, desarrollo e implementación con usuarios reales.
+                        </p>
+                        <div class="project-stack">
+                            <span class="stack-item">CodeIgniter</span>
+                            <span class="stack-item">PHP</span>
+                            <span class="stack-item">Java</span>
+                            <span class="stack-item">Bootstrap</span>
+                            <span class="stack-item">MySQL</span>
+                        </div>
+                        <div class="project-footer">
+                            <span class="btn-project-link">
+                                ITSI Ibarra <i class="fas fa-check-circle" style="color: var(--accent-green);"></i> En Producción
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Empadronamiento Digital (GAD Ibarra) -->
+                <div class="project-card">
+                    <div class="project-header-bar">
+                        <span class="project-code-id">PROJ_03 // CIVIC TECH MOBILE</span>
+                        <i class="fas fa-city" style="color: var(--accent-yellow);"></i>
+                    </div>
+                    <div class="project-body">
+                        <h3 class="project-name">Empadronamiento Digital GAD Ibarra</h3>
+                        <p class="project-desc">
+                            Aplicación móvil para el empadronamiento digital ciudadano de las parroquias urbanas del cantón Ibarra 2025 para la Dirección de Participación Ciudadana del GAD Municipal de Ibarra, implementando registro con manejo seguro de datos.
+                        </p>
+                        <div class="project-stack">
+                            <span class="stack-item">Mobile Tech</span>
+                            <span class="stack-item">Civic Tech</span>
+                            <span class="stack-item">PostgreSQL</span>
+                            <span class="stack-item">Security</span>
+                        </div>
+                        <div class="project-footer">
+                            <span class="btn-project-link">
+                                GAD Municipal Ibarra <i class="fas fa-check-circle" style="color: var(--accent-green);"></i> Completado
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Veci App -->
+                <div class="project-card">
+                    <div class="project-header-bar">
+                        <span class="project-code-id">PROJ_04 // COMMUNITY APP</span>
+                        <i class="fas fa-users" style="color: var(--accent-yellow);"></i>
+                    </div>
+                    <div class="project-body">
+                        <h3 class="project-name">Veci App</h3>
+                        <p class="project-desc">
+                            Aplicación móvil diseñada para conectar comunidades y vecindarios, facilitando reportes comunitarios y comunicación directa entre ciudadanos.
+                        </p>
+                        <div class="project-stack">
+                            <span class="stack-item">JavaScript</span>
+                            <span class="stack-item">HTML5 / CSS3</span>
+                            <span class="stack-item">Mobile</span>
+                        </div>
+                        <div class="project-footer">
+                            <a href="https://github.com/ESTEBANTRAN/veci_app2" target="_blank" class="btn-project-link">
+                                <i class="fab fa-github"></i> Ver en GitHub <i class="fas fa-external-link-alt"></i>
                             </a>
                         </div>
                     </div>
@@ -299,22 +280,23 @@
 
                 <!-- Auto Shutdown App -->
                 <div class="project-card">
-                    <div class="project-banner" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(236, 72, 153, 0.2) 100%);">
-                        <i class="fas fa-power-off"></i>
+                    <div class="project-header-bar">
+                        <span class="project-code-id">PROJ_05 // DESKTOP SYSTEM</span>
+                        <i class="fas fa-desktop" style="color: var(--accent-yellow);"></i>
                     </div>
                     <div class="project-body">
-                        <h3 class="project-title">Auto Shutdown App</h3>
+                        <h3 class="project-name">Auto Shutdown App</h3>
                         <p class="project-desc">
-                            Aplicación de escritorio optimizada desarrollada en C++ para la automatización y programación inteligente del apagado del equipo PC.
+                            Software de escritorio en C++ para Windows con interfaz intuitiva de programación inteligente de apagado de equipos de cómputo.
                         </p>
-                        <div class="project-tech-stack">
-                            <span class="tech-badge">C++</span>
-                            <span class="tech-badge">Windows API</span>
-                            <span class="tech-badge">System Utilities</span>
+                        <div class="project-stack">
+                            <span class="stack-item">C++</span>
+                            <span class="stack-item">Windows API</span>
+                            <span class="stack-item">Desktop</span>
                         </div>
                         <div class="project-footer">
-                            <a href="https://github.com/ESTEBANTRAN/ApagadoAutomaticoPC_AutoShutdownApp" target="_blank" class="project-link-btn">
-                                <i class="fab fa-github"></i> Código en GitHub <i class="fas fa-external-link-alt"></i>
+                            <a href="https://github.com/ESTEBANTRAN/ApagadoAutomaticoPC_AutoShutdownApp" target="_blank" class="btn-project-link">
+                                <i class="fab fa-github"></i> Ver en GitHub <i class="fas fa-external-link-alt"></i>
                             </a>
                         </div>
                     </div>
@@ -322,46 +304,23 @@
 
                 <!-- Dooly App -->
                 <div class="project-card">
-                    <div class="project-banner" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(6, 182, 212, 0.2) 100%);">
-                        <i class="fas fa-gamepad"></i>
+                    <div class="project-header-bar">
+                        <span class="project-code-id">PROJ_06 // GRAPHICS & GAME DEV</span>
+                        <i class="fas fa-gamepad" style="color: var(--accent-yellow);"></i>
                     </div>
                     <div class="project-body">
-                        <h3 class="project-title">Dooly App</h3>
+                        <h3 class="project-name">Dooly App OpenGL Engine</h3>
                         <p class="project-desc">
-                            Proyecto interactivo de videojuegos y gráficos por computadora en 2D/3D utilizando C++ con la librería OpenGL.
+                            Motor de juego interactivo en C++ con OpenGL, implementando renderizado gráfico 2D/3D, física interactiva y lógica de juego.
                         </p>
-                        <div class="project-tech-stack">
-                            <span class="tech-badge">C++</span>
-                            <span class="tech-badge">OpenGL</span>
-                            <span class="tech-badge">Game Dev</span>
+                        <div class="project-stack">
+                            <span class="stack-item">C++</span>
+                            <span class="stack-item">OpenGL</span>
+                            <span class="stack-item">Game Development</span>
                         </div>
                         <div class="project-footer">
-                            <a href="https://github.com/ESTEBANTRAN/dooly_app" target="_blank" class="project-link-btn">
-                                <i class="fab fa-github"></i> Código en GitHub <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- AdminLTE MVC -->
-                <div class="project-card">
-                    <div class="project-banner" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.2) 0%, rgba(236, 72, 153, 0.2) 100%);">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="project-body">
-                        <h3 class="project-title">AdminLTE MVC Dashboard</h3>
-                        <p class="project-desc">
-                            Arquitectura Web escalable con patrón MVC y AdminLTE para dashboards de administración modular y gestión de datos.
-                        </p>
-                        <div class="project-tech-stack">
-                            <span class="tech-badge">PHP</span>
-                            <span class="tech-badge">MVC Architecture</span>
-                            <span class="tech-badge">AdminLTE</span>
-                            <span class="tech-badge">MySQL</span>
-                        </div>
-                        <div class="project-footer">
-                            <a href="https://github.com/ESTEBANTRAN/adminLTE-MVC" target="_blank" class="project-link-btn">
-                                <i class="fab fa-github"></i> Código en GitHub <i class="fas fa-external-link-alt"></i>
+                            <a href="https://github.com/ESTEBANTRAN/dooly_app" target="_blank" class="btn-project-link">
+                                <i class="fab fa-github"></i> Ver en GitHub <i class="fas fa-external-link-alt"></i>
                             </a>
                         </div>
                     </div>
@@ -370,58 +329,176 @@
         </div>
     </section>
 
-    <!-- Experiencia & Educación Timeline Section -->
+    <!-- Certificaciones Section -->
+    <section id="certificaciones" class="section">
+        <div class="container">
+            <div class="section-tag">ACREDITACIONES OFICIALES</div>
+            <h2 class="section-title">10+ CERTIFICACIONES AI & CLOUD</h2>
+
+            <div class="skills-matrix">
+                <!-- Anthropic -->
+                <div class="matrix-card">
+                    <div class="matrix-header">
+                        <h3 class="matrix-title"><i class="fas fa-robot"></i> ANTHROPIC AI</h3>
+                        <span class="matrix-tag">OFFICIAL CERTIFIED</span>
+                    </div>
+                    <div class="tech-tags-list">
+                        <div class="tech-tag-chip primary-skill"><i class="fas fa-certificate"></i> Claude Code 101 & Code in Action</div>
+                        <div class="tech-tag-chip primary-skill"><i class="fas fa-certificate"></i> Claude with the Anthropic API</div>
+                        <div class="tech-tag-chip primary-skill"><i class="fas fa-certificate"></i> Model Context Protocol (MCP): Advanced</div>
+                        <div class="tech-tag-chip primary-skill"><i class="fas fa-certificate"></i> Introduction to MCP · Agent Skills · Subagents</div>
+                        <div class="tech-tag-chip"><i class="fas fa-certificate"></i> AI Fluency: Framework & Foundations</div>
+                    </div>
+                </div>
+
+                <!-- Cloud AI -->
+                <div class="matrix-card">
+                    <div class="matrix-header">
+                        <h3 class="matrix-title"><i class="fab fa-google"></i> GOOGLE CLOUD & AWS</h3>
+                        <span class="matrix-tag">CLOUD AI ACCREDITED</span>
+                    </div>
+                    <div class="tech-tags-list">
+                        <div class="tech-tag-chip primary-skill"><i class="fas fa-award"></i> Claude with Google Vertex AI</div>
+                        <div class="tech-tag-chip primary-skill"><i class="fas fa-award"></i> Prompt Design in Vertex AI (Skill Badge)</div>
+                        <div class="tech-tag-chip primary-skill"><i class="fas fa-award"></i> Claude with Amazon Bedrock</div>
+                        <div class="tech-tag-chip"><i class="fas fa-award"></i> AWS Cloud Practitioner Essentials</div>
+                    </div>
+                </div>
+
+                <!-- IBM SkillsBuild & Languages -->
+                <div class="matrix-card">
+                    <div class="matrix-header">
+                        <h3 class="matrix-title"><i class="fas fa-microchip"></i> IBM & IDIOMAS</h3>
+                        <span class="matrix-tag">MACHINE LEARNING & BECA SENESCYT</span>
+                    </div>
+                    <div class="tech-tags-list">
+                        <div class="tech-tag-chip"><i class="fas fa-check"></i> IBM AI Trailblazer: Ready to Shape AI</div>
+                        <div class="tech-tag-chip"><i class="fas fa-check"></i> Machine Learning Methods and Tools (IBM)</div>
+                        <div class="tech-tag-chip"><i class="fas fa-check"></i> Data Analytics for Machine Learning (IBM)</div>
+                        <div class="tech-tag-chip primary-skill"><i class="fas fa-language"></i> Inglés B1 (AITEC / SENESCYT Beca 120h)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Habilidades Técnicas Stack Section -->
+    <section id="habilidades" class="section">
+        <div class="container">
+            <div class="section-tag">MATRIZ DE TECNOLOGÍAS</div>
+            <h2 class="section-title">HABILIDADES TÉCNICAS</h2>
+
+            <div class="skills-matrix">
+                <!-- Full Stack Backend & Web -->
+                <div class="matrix-card">
+                    <div class="matrix-header">
+                        <h3 class="matrix-title"><i class="fas fa-layer-group"></i> BACKEND & WEB FRAMEWORKS</h3>
+                    </div>
+                    <div class="tech-tags-list">
+                        <span class="tech-tag-chip primary-skill">PHP</span>
+                        <span class="tech-tag-chip primary-skill">Laravel</span>
+                        <span class="tech-tag-chip primary-skill">CodeIgniter</span>
+                        <span class="tech-tag-chip primary-skill">Next.js</span>
+                        <span class="tech-tag-chip primary-skill">Nest.js</span>
+                        <span class="tech-tag-chip primary-skill">Node.js</span>
+                        <span class="tech-tag-chip">React</span>
+                        <span class="tech-tag-chip">JavaScript / TypeScript</span>
+                        <span class="tech-tag-chip">Python</span>
+                        <span class="tech-tag-chip">Java</span>
+                        <span class="tech-tag-chip">Bootstrap</span>
+                    </div>
+                </div>
+
+                <!-- AI & DB -->
+                <div class="matrix-card">
+                    <div class="matrix-header">
+                        <h3 class="matrix-title"><i class="fas fa-database"></i> BASES DE DATOS & AI STACK</h3>
+                    </div>
+                    <div class="tech-tags-list">
+                        <span class="tech-tag-chip primary-skill">MySQL</span>
+                        <span class="tech-tag-chip primary-skill">PostgreSQL</span>
+                        <span class="tech-tag-chip">SQL Server</span>
+                        <span class="tech-tag-chip">Supabase</span>
+                        <span class="tech-tag-chip primary-skill">Claude API</span>
+                        <span class="tech-tag-chip primary-skill">MCP Protocol</span>
+                        <span class="tech-tag-chip primary-skill">AI Agents & Subagents</span>
+                        <span class="tech-tag-chip">Vertex AI</span>
+                        <span class="tech-tag-chip">Amazon Bedrock</span>
+                    </div>
+                </div>
+
+                <!-- Tools & DevSecOps -->
+                <div class="matrix-card">
+                    <div class="matrix-header">
+                        <h3 class="matrix-title"><i class="fas fa-tools"></i> HERRAMIENTAS & DEVSECOPS</h3>
+                    </div>
+                    <div class="tech-tags-list">
+                        <span class="tech-tag-chip primary-skill">Git & GitHub</span>
+                        <span class="tech-tag-chip">Docker</span>
+                        <span class="tech-tag-chip">RESTful APIs</span>
+                        <span class="tech-tag-chip">Digital Signatures</span>
+                        <span class="tech-tag-chip">Secure Auth</span>
+                        <span class="tech-tag-chip">Postman</span>
+                        <span class="tech-tag-chip">Figma</span>
+                        <span class="tech-tag-chip">Agile / Scrum</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experiencia & Trayectoria Log -->
     <section id="experiencia" class="section">
         <div class="container">
-            <div class="section-header">
-                <p class="section-subtitle">Trayectoria</p>
-                <h2 class="section-title">Experiencia & Educación</h2>
-                <div class="title-line"></div>
-            </div>
+            <div class="section-tag">LOG DE EXPERIENCIA</div>
+            <h2 class="section-title">TRAYECTORIA LABORAL & ACADÉMICA</h2>
 
-            <div class="timeline">
-                <!-- Item 1 -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-card">
-                            <span class="timeline-date">2024 - Presente</span>
-                            <h3 class="timeline-role">Pasantía en Desarrollo de Software</h3>
-                            <h4 class="timeline-company">Instituto Tecnológico Superior Ibarra</h4>
-                            <p class="timeline-desc">
-                                Desarrollo activo de aplicaciones móviles y sistemas web institucionales, optimizando la experiencia digital e implementando soluciones tecnológicas de alto rendimiento.
-                            </p>
-                        </div>
+            <div class="timeline-list">
+                <!-- MOVIDELNOR -->
+                <div class="timeline-row">
+                    <div class="timeline-date-col">AGO 2025 – NOV 2025</div>
+                    <div>
+                        <h3 class="timeline-role-title">Desarrollador de Software — Prácticas</h3>
+                        <div class="timeline-company-name">MOVIDELNOR E.P. (Ibarra, Ecuador) · TICS</div>
+                        <p class="timeline-desc-text">
+                            Arquitecté e implementé <strong>OSGO v3.0</strong> en Laravel (PHP) + MySQL, sistema web en producción que coordina operaciones de tránsito en 96 calles de Ibarra. Desarrollé el módulo de firmas digitales para autenticación y aprobación de órdenes de servicio en tiempo real para el total del personal operativo bajo metodología Agile/Scrum.
+                        </p>
                     </div>
                 </div>
 
-                <!-- Item 2 -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-card">
-                            <span class="timeline-date">2023 - Presente</span>
-                            <h3 class="timeline-role">Desarrollador Freelance</h3>
-                            <h4 class="timeline-company">Proyectos Independientes</h4>
-                            <p class="timeline-desc">
-                                Creación de software a medida, desarrollo de aplicaciones multiplataforma con Flutter, sitios web modernos y participación en hackathons y game jams.
-                            </p>
-                        </div>
+                <!-- ITSI Bienestar -->
+                <div class="timeline-row">
+                    <div class="timeline-date-col">ENE 2025 – JUN 2025</div>
+                    <div>
+                        <h3 class="timeline-role-title">Líder de Proyecto — Sistema Web Académico</h3>
+                        <div class="timeline-company-name">Instituto Tecnológico Superior Ibarra (ITSI) · Bienestar</div>
+                        <p class="timeline-desc-text">
+                            Lideré el diseño y desarrollo del sistema web académico <strong>GIBI-ITSI</strong> en CodeIgniter / PHP + Java + Bootstrap para la gestión del departamento de Bienestar Institucional. Coordiné equipo estudiantil bajo Scrum facilitando sprints semanales y entregas en producción.
+                        </p>
                     </div>
                 </div>
 
-                <!-- Item 3 -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-card">
-                            <span class="timeline-date">2021 - Presente</span>
-                            <h3 class="timeline-role">Ingeniería en Sistemas</h3>
-                            <h4 class="timeline-company">Instituto Tecnológico Superior Ibarra</h4>
-                            <p class="timeline-desc">
-                                Formación académica integral en ingeniería de software, arquitectura de sistemas, bases de datos avanzadas, redes y programación orientada a objetos.
-                            </p>
-                        </div>
+                <!-- GAD Ibarra -->
+                <div class="timeline-row">
+                    <div class="timeline-date-col">NOV 2024 – FEB 2025</div>
+                    <div>
+                        <h3 class="timeline-role-title">Pasante de Informática — Civic Tech</h3>
+                        <div class="timeline-company-name">GAD Municipal San Miguel de Ibarra · Participación Ciudadana</div>
+                        <p class="timeline-desc-text">
+                            Colaboré en el desarrollo de aplicación móvil para empadronamiento digital de las parroquias urbanas del cantón Ibarra 2025, implementando registro ciudadano con manejo seguro de datos personales.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Educación -->
+                <div class="timeline-row">
+                    <div class="timeline-date-col">2023 – MAYO 2026</div>
+                    <div>
+                        <h3 class="timeline-role-title">Tecnología Superior en Desarrollo de Software</h3>
+                        <div class="timeline-company-name">Instituto Tecnológico Superior Ibarra (ITSI)</div>
+                        <p class="timeline-desc-text">
+                            Título Profesional en Desarrollo de Software. Formación especializada en arquitectura de software, bases de datos avanzadas, seguridad informática y tecnologías AI.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -431,66 +508,65 @@
     <!-- Contacto Section -->
     <section id="contacto" class="section">
         <div class="container">
-            <div class="section-header">
-                <p class="section-subtitle">¿Tienes un proyecto en mente?</p>
-                <h2 class="section-title">Hablemos & Trabajemos Juntos</h2>
-                <div class="title-line"></div>
-            </div>
+            <div class="section-tag">CONTRATACIÓN REMOTA FULL-TIME</div>
+            <h2 class="section-title">CONTACTO & PROPUESTAS</h2>
 
-            <div class="contact-grid">
-                <div class="contact-info-cards">
-                    <a href="https://github.com/ESTEBANTRAN" target="_blank" class="contact-card">
-                        <div class="contact-icon">
-                            <i class="fab fa-github"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>GitHub</h4>
-                            <p>@ESTEBANTRAN</p>
+            <div class="contact-layout">
+                <div class="contact-cards-stack">
+                    <a href="mailto:aulestiaesteban8@gmail.com" class="contact-card-item">
+                        <div class="contact-card-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-card-text">
+                            <h4>EMAIL DIRECTO</h4>
+                            <p>aulestiaesteban8@gmail.com</p>
                         </div>
                     </a>
 
-                    <a href="mailto:esteban.aulestia@example.com" class="contact-card">
-                        <div class="contact-icon" style="background: rgba(6, 182, 212, 0.15); color: var(--accent-cyan);">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Correo Electrónico</h4>
-                            <p>esteban.aulestia@example.com</p>
+                    <a href="https://wa.me/593987297841" target="_blank" class="contact-card-item">
+                        <div class="contact-card-icon" style="color: var(--accent-green);"><i class="fab fa-whatsapp"></i></div>
+                        <div class="contact-card-text">
+                            <h4>TELÉFONO / WHATSAPP</h4>
+                            <p>+593 987 297 841</p>
                         </div>
                     </a>
 
-                    <div class="contact-card">
-                        <div class="contact-icon" style="background: rgba(236, 72, 153, 0.15); color: var(--accent-pink);">
-                            <i class="fas fa-map-marker-alt"></i>
+                    <a href="https://linkedin.com/in/estebanaulestia" target="_blank" class="contact-card-item">
+                        <div class="contact-card-icon" style="color: var(--accent-blue);"><i class="fab fa-linkedin"></i></div>
+                        <div class="contact-card-text">
+                            <h4>LINKEDIN</h4>
+                            <p>linkedin.com/in/estebanaulestia</p>
                         </div>
-                        <div class="contact-details">
-                            <h4>Ubicación</h4>
-                            <p>Ibarra, Ecuador</p>
+                    </a>
+
+                    <a href="https://github.com/ESTEBANTRAN" target="_blank" class="contact-card-item">
+                        <div class="contact-card-icon"><i class="fab fa-github"></i></div>
+                        <div class="contact-card-text">
+                            <h4>GITHUB</h4>
+                            <p>github.com/ESTEBANTRAN</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
 
-                <!-- Formulario -->
-                <div class="form-glass">
+                <!-- Formulario Industrial -->
+                <div class="industrial-form-box">
                     <form id="contactForm">
                         <div class="form-group">
-                            <label for="name" class="form-label">Tu Nombre</label>
-                            <input type="text" id="name" name="name" class="form-control" placeholder="Ej. Juan Pérez" required>
+                            <label class="form-label">TU NOMBRE / EMPRESA</label>
+                            <input type="text" id="name" name="name" class="form-input" placeholder="Ej. Tech Company Ltd." required>
                         </div>
                         <div class="form-group">
-                            <label for="email" class="form-label">Tu Email</label>
-                            <input type="email" id="email" name="email" class="form-control" placeholder="juan@ejemplo.com" required>
+                            <label class="form-label">CORREO ELECTRÓNICO</label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="contacto@empresa.com" required>
                         </div>
                         <div class="form-group">
-                            <label for="subject" class="form-label">Asunto</label>
-                            <input type="text" id="subject" name="subject" class="form-control" placeholder="Ej. Propuesta de proyecto" required>
+                            <label class="form-label">ASUNTO / OFERTA LABORAL</label>
+                            <input type="text" id="subject" name="subject" class="form-input" placeholder="Oportunidad Remota / Proyecto Full Stack" required>
                         </div>
                         <div class="form-group">
-                            <label for="message" class="form-label">Mensaje</label>
-                            <textarea id="message" name="message" class="form-control" placeholder="Cuéntame sobre tu proyecto o consulta..." required></textarea>
+                            <label class="form-label">DETALLES DEL MENSAJE</label>
+                            <textarea id="message" name="message" class="form-input" placeholder="Cuéntame sobre el rol o proyecto..." required></textarea>
                         </div>
-                        <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
-                            Enviar Mensaje <i class="fas fa-paper-plane"></i>
+                        <button type="submit" class="btn-yellow" style="width: 100%;">
+                            ENVIAR MENSAJE DIRECTO &gt;
                         </button>
                     </form>
                 </div>
@@ -500,35 +576,17 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <h3>Esteban Aulestia</h3>
-                    <p style="color: var(--text-secondary); margin-top: 0.25rem;">Software Developer</p>
-                </div>
-
-                <div class="footer-socials">
-                    <a href="https://github.com/ESTEBANTRAN" target="_blank" class="social-circle" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="CV_Aulestia_Andrade_Esteban_ATS2026_signed.pdf" target="_blank" class="social-circle" aria-label="CV">
-                        <i class="fas fa-file-alt"></i>
-                    </a>
-                </div>
+        <div class="container footer-content">
+            <div class="footer-brand">
+                ESTEBAN MAXIMILIANO AULESTIA ANDRADE // FULL STACK DEVELOPER
             </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2026 Esteban Aulestia Andrade. Todos los derechos reservados.</p>
+            <div class="footer-meta">
+                © 2026 // ECUADOR (UTC-5) // TARIFA NEARSHORE $10 - $12/HR USD
             </div>
         </div>
     </footer>
 
-    <!-- Scroll To Top Button -->
-    <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Volver arriba">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
     <!-- JavaScript -->
-    <script src="main.js?v=2.0"></script>
+    <script src="main.js?v=3.0"></script>
 </body>
 </html>

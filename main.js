@@ -1,195 +1,79 @@
 /* ==========================================================================
-   ESTEBAN AULESTIA - PORTFOLIO INTERACTIVE LOGIC (COSMOS THEME)
+   ESTEBAN AULESTIA — INDUSTRIAL HIGH-PRECISION PORTFOLIO SCRIPT
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
-    initParticlesCanvas();
-    initCustomCursor();
+    initTechCursor();
     initTypewriter();
     initHeaderScroll();
     initMobileNav();
-    initScrollReveal();
     initStatsCounter();
     initContactForm();
-    initScrollToTop();
 });
 
 /* ==========================================================================
-   1. PARTICLES CANVAS BACKGROUND
+   1. TECH CURSOR TRACKING
    ========================================================================== */
-function initParticlesCanvas() {
-    const canvas = document.getElementById('particles-canvas');
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    let width, height;
-    let particles = [];
-    let mouse = { x: null, y: null, radius: 150 };
-
-    function resize() {
-        width = canvas.width = window.innerWidth;
-        height = canvas.height = window.innerHeight;
-    }
-
-    window.addEventListener('resize', resize);
-    resize();
-
-    window.addEventListener('mousemove', (e) => {
-        mouse.x = e.clientX;
-        mouse.y = e.clientY;
-    });
-
-    window.addEventListener('mouseleave', () => {
-        mouse.x = null;
-        mouse.y = null;
-    });
-
-    class Particle {
-        constructor() {
-            this.x = Math.random() * width;
-            this.y = Math.random() * height;
-            this.size = Math.random() * 2 + 1;
-            this.vx = (Math.random() - 0.5) * 0.8;
-            this.vy = (Math.random() - 0.5) * 0.8;
-            this.color = Math.random() > 0.5 ? 'rgba(6, 182, 212, ' : 'rgba(139, 92, 246, ';
-            this.baseAlpha = Math.random() * 0.5 + 0.2;
-        }
-
-        update() {
-            this.x += this.vx;
-            this.y += this.vy;
-
-            if (this.x < 0) this.x = width;
-            if (this.x > width) this.x = 0;
-            if (this.y < 0) this.y = height;
-            if (this.y > height) this.y = 0;
-
-            // Mouse interaction
-            if (mouse.x !== null && mouse.y !== null) {
-                let dx = mouse.x - this.x;
-                let dy = mouse.y - this.y;
-                let dist = Math.sqrt(dx * dx + dy * dy);
-                if (dist < mouse.radius) {
-                    let force = (mouse.radius - dist) / mouse.radius;
-                    this.x -= (dx / dist) * force * 3;
-                    this.y -= (dy / dist) * force * 3;
-                }
-            }
-        }
-
-        draw() {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fillStyle = this.color + this.baseAlpha + ')';
-            ctx.shadowBlur = 10;
-            ctx.shadowColor = this.color + '0.8)';
-            ctx.fill();
-            ctx.shadowBlur = 0;
-        }
-    }
-
-    const particleCount = Math.min(Math.floor(window.innerWidth / 15), 90);
-    for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
-    }
-
-    function animate() {
-        ctx.clearRect(0, 0, width, height);
-
-        // Draw connections
-        for (let i = 0; i < particles.length; i++) {
-            for (let j = i + 1; j < particles.length; j++) {
-                let dx = particles[i].x - particles[j].x;
-                let dy = particles[i].y - particles[j].y;
-                let dist = Math.sqrt(dx * dx + dy * dy);
-
-                if (dist < 130) {
-                    let alpha = (1 - dist / 130) * 0.25;
-                    ctx.beginPath();
-                    ctx.moveTo(particles[i].x, particles[i].y);
-                    ctx.lineTo(particles[j].x, particles[j].y);
-                    ctx.strokeStyle = `rgba(139, 92, 246, ${alpha})`;
-                    ctx.lineWidth = 0.8;
-                    ctx.stroke();
-                }
-            }
-        }
-
-        particles.forEach(p => {
-            p.update();
-            p.draw();
-        });
-
-        requestAnimationFrame(animate);
-    }
-
-    animate();
-}
-
-/* ==========================================================================
-   2. CUSTOM GLOW CURSOR & FOLLOWER
-   ========================================================================== */
-function initCustomCursor() {
-    const cursor = document.querySelector('.custom-cursor');
-    const follower = document.querySelector('.custom-cursor-follower');
-    if (!cursor || !follower) return;
+function initTechCursor() {
+    const cursor = document.querySelector('.tech-cursor');
+    const dot = document.querySelector('.tech-cursor-dot');
+    if (!cursor || !dot) return;
 
     let mouseX = 0, mouseY = 0;
-    let followerX = 0, followerY = 0;
+    let cursorX = 0, cursorY = 0;
 
     window.addEventListener('mousemove', (e) => {
         mouseX = e.clientX;
         mouseY = e.clientY;
 
-        cursor.style.left = `${mouseX}px`;
-        cursor.style.top = `${mouseY}px`;
+        dot.style.left = `${mouseX}px`;
+        dot.style.top = `${mouseY}px`;
     });
 
-    function renderFollower() {
-        followerX += (mouseX - followerX) * 0.2;
-        followerY += (mouseY - followerY) * 0.2;
+    function animateCursor() {
+        cursorX += (mouseX - cursorX) * 0.25;
+        cursorY += (mouseY - cursorY) * 0.25;
 
-        follower.style.left = `${followerX}px`;
-        follower.style.top = `${followerY}px`;
+        cursor.style.left = `${cursorX}px`;
+        cursor.style.top = `${cursorY}px`;
 
-        requestAnimationFrame(renderFollower);
+        requestAnimationFrame(animateCursor);
     }
-    renderFollower();
+    animateCursor();
 
-    // Hover effect on interactive elements
-    const hoverTargets = document.querySelectorAll('a, button, .project-card, .skill-chip, .info-card, .contact-card');
+    const hoverTargets = document.querySelectorAll('a, button, .project-card, .matrix-card, .spec-card, .tech-tag-chip');
     hoverTargets.forEach(target => {
         target.addEventListener('mouseenter', () => {
-            cursor.style.width = '45px';
-            cursor.style.height = '45px';
-            cursor.style.borderColor = 'var(--accent-pink)';
+            cursor.style.width = '32px';
+            cursor.style.height = '32px';
+            cursor.style.background = 'rgba(255, 214, 0, 0.1)';
         });
         target.addEventListener('mouseleave', () => {
-            cursor.style.width = '20px';
-            cursor.style.height = '20px';
-            cursor.style.borderColor = 'var(--accent-cyan)';
+            cursor.style.width = '16px';
+            cursor.style.height = '16px';
+            cursor.style.background = 'transparent';
         });
     });
 }
 
 /* ==========================================================================
-   3. TYPEWRITER EFFECT
+   2. TYPEWRITER EFFECT
    ========================================================================== */
 function initTypewriter() {
-    const target = document.querySelector('.typing-text');
+    const target = document.querySelector('.role-typing');
     if (!target) return;
 
     const roles = [
-        'Desarrollo Móvil (Flutter)',
-        'Programación C++ & Java',
-        'Desarrollo Web Fullstack',
-        'OpenGL & Game Dev'
+        'Desarrollo Web PHP (Laravel / CodeIgniter)',
+        'Especialista Next.js & Nest.js',
+        'Full Stack Frontend & Backend',
+        'Integración Claude API & MCP Protocols'
     ];
 
     let roleIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
-    let speed = 100;
+    let speed = 90;
 
     function type() {
         const currentRole = roles[roleIndex];
@@ -197,47 +81,39 @@ function initTypewriter() {
         if (isDeleting) {
             target.textContent = currentRole.substring(0, charIndex - 1);
             charIndex--;
-            speed = 50;
+            speed = 40;
         } else {
             target.textContent = currentRole.substring(0, charIndex + 1);
             charIndex++;
-            speed = 100;
+            speed = 80;
         }
 
         if (!isDeleting && charIndex === currentRole.length) {
             isDeleting = true;
-            speed = 2000; // Pause at end
+            speed = 2200; // Pause at end
         } else if (isDeleting && charIndex === 0) {
             isDeleting = false;
             roleIndex = (roleIndex + 1) % roles.length;
-            speed = 500;
+            speed = 400;
         }
 
         setTimeout(type, speed);
     }
 
-    setTimeout(type, 800);
+    setTimeout(type, 500);
 }
 
 /* ==========================================================================
-   4. HEADER & NAV SCROLL LOGIC
+   3. HEADER & NAV SCROLL
    ========================================================================== */
 function initHeaderScroll() {
-    const header = document.querySelector('.header');
     const navLinks = document.querySelectorAll('.nav-link');
     const sections = document.querySelectorAll('section');
 
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-
-        // Active link tracking
         let currentSectionId = '';
         sections.forEach(section => {
-            const sectionTop = section.offsetTop - 120;
+            const sectionTop = section.offsetTop - 100;
             const sectionHeight = section.offsetHeight;
             if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
                 currentSectionId = section.getAttribute('id');
@@ -254,12 +130,11 @@ function initHeaderScroll() {
 }
 
 /* ==========================================================================
-   5. MOBILE MENU TOGGLE
+   4. MOBILE NAV TOGGLE
    ========================================================================== */
 function initMobileNav() {
     const toggleBtn = document.querySelector('.nav-toggle');
     const navMenu = document.querySelector('.nav-menu');
-
     if (!toggleBtn || !navMenu) return;
 
     toggleBtn.addEventListener('click', () => {
@@ -274,36 +149,10 @@ function initMobileNav() {
 }
 
 /* ==========================================================================
-   6. SCROLL REVEAL ANIMATIONS
-   ========================================================================== */
-function initScrollReveal() {
-    const revealElements = document.querySelectorAll(
-        '.section-header, .glass-box, .info-card, .skill-category-card, .project-card, .timeline-card, .contact-card, .form-glass'
-    );
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.15 });
-
-    revealElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(35px)';
-        el.style.transition = 'opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
-        observer.observe(el);
-    });
-}
-
-/* ==========================================================================
-   7. STATS ANIMATED COUNTER
+   5. STATS ANIMATED COUNTER
    ========================================================================== */
 function initStatsCounter() {
-    const statNumbers = document.querySelectorAll('.stat-number');
+    const statNumbers = document.querySelectorAll('.stat-num');
     if (statNumbers.length === 0) return;
 
     const observer = new IntersectionObserver((entries) => {
@@ -311,15 +160,16 @@ function initStatsCounter() {
             if (entry.isIntersecting) {
                 const target = parseInt(entry.target.getAttribute('data-target'));
                 let count = 0;
-                const duration = 1500;
-                const stepTime = duration / target;
+                const duration = 1200;
+                const stepTime = Math.max(Math.floor(duration / target), 15);
 
                 const timer = setInterval(() => {
-                    count++;
-                    entry.target.textContent = count + '+';
+                    count += Math.ceil(target / 40);
                     if (count >= target) {
+                        count = target;
                         clearInterval(timer);
                     }
+                    entry.target.textContent = count + '+';
                 }, stepTime);
 
                 observer.unobserve(entry.target);
@@ -331,7 +181,7 @@ function initStatsCounter() {
 }
 
 /* ==========================================================================
-   8. CONTACT FORM INTERACTION
+   6. INDUSTRIAL CONTACT FORM
    ========================================================================== */
 function initContactForm() {
     const form = document.getElementById('contactForm');
@@ -343,38 +193,38 @@ function initContactForm() {
         const btn = form.querySelector('button[type="submit"]');
         const originalText = btn.innerHTML;
 
-        btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Enviando...`;
+        btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> TRANSMITIENDO...`;
         btn.disabled = true;
 
         setTimeout(() => {
-            showToast('¡Mensaje enviado con éxito! Me pondré en contacto contigo pronto.', 'success');
+            showToast('¡MENSAJE TRANSMITIDO CON ÉXITO! TE RESPONDERÉ A LA BREVEDAD.');
             form.reset();
             btn.innerHTML = originalText;
             btn.disabled = false;
-        }, 1500);
+        }, 1200);
     });
 }
 
-function showToast(message, type = 'info') {
+function showToast(message) {
     const toast = document.createElement('div');
     toast.style.cssText = `
         position: fixed;
-        bottom: 30px;
-        right: 30px;
-        padding: 1rem 1.75rem;
-        background: ${type === 'success' ? 'rgba(16, 185, 129, 0.95)' : 'rgba(6, 182, 212, 0.95)'};
-        color: #fff;
-        border-radius: 12px;
-        font-family: var(--font-sans);
-        font-weight: 600;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        bottom: 24px;
+        right: 24px;
+        padding: 16px 24px;
+        background: #FFD600;
+        color: #0A0A0A;
+        font-family: var(--font-mono);
+        font-size: 12px;
+        font-weight: 800;
+        border: 2px solid #0A0A0A;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.8);
         z-index: 10000;
         transform: translateY(100px);
         opacity: 0;
-        transition: all 0.4s ease;
-        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
     `;
-    toast.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
+    toast.innerHTML = `<i class="fas fa-check"></i> ${message}`;
 
     document.body.appendChild(toast);
 
@@ -386,26 +236,6 @@ function showToast(message, type = 'info') {
     setTimeout(() => {
         toast.style.transform = 'translateY(100px)';
         toast.style.opacity = '0';
-        setTimeout(() => toast.remove(), 400);
+        setTimeout(() => toast.remove(), 300);
     }, 4000);
-}
-
-/* ==========================================================================
-   9. SCROLL TO TOP BUTTON
-   ========================================================================== */
-function initScrollToTop() {
-    const btn = document.getElementById('scrollTopBtn');
-    if (!btn) return;
-
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 400) {
-            btn.classList.add('visible');
-        } else {
-            btn.classList.remove('visible');
-        }
-    });
-
-    btn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
 }
