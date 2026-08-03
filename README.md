@@ -1,115 +1,95 @@
-# 🚀 Portafolio de Esteban Aulestia
+# ⚡ Esteban Maximiliano Aulestia Andrade — Portfolio
 
-## 📋 Descripción
-
-Portafolio profesional personal desarrollado con HTML5, CSS3 y JavaScript vanilla. Diseñado para mostrar las habilidades, proyectos y experiencia de Esteban Aulestia como desarrollador de software.
-
-## ✨ Características
-
-- **Diseño Responsivo**: Optimizado para todos los dispositivos
-- **Navegación Suave**: Scroll suave entre secciones
-- **Animaciones**: Efectos visuales y transiciones fluidas
-- **Formulario de Contacto**: Sistema de contacto funcional
-- **Modo Oscuro**: Toggle para cambiar entre temas
-- **Accesibilidad**: Cumple estándares de accesibilidad web
-- **SEO Optimizado**: Meta tags y estructura semántica
-
-## 🛠️ Tecnologías Utilizadas
-
-- **Frontend**: HTML5, CSS3, JavaScript ES6+
-- **Iconos**: Font Awesome 6.0
-- **Fuentes**: Google Fonts (Inter)
-- **Animaciones**: CSS3 + JavaScript nativo
-- **Responsive**: CSS Grid + Flexbox
-
-## 📁 Estructura del Proyecto
-
-```
-proyecto_prueba.github.io/
-├── index.html          # Página principal
-├── style.css           # Estilos y diseño
-├── main.js            # Lógica y funcionalidades
-└── README.md          # Documentación
-```
-
-## 🎯 Secciones del Portafolio
-
-1. **Hero Section**: Presentación principal con efecto de escritura
-2. **Sobre Mí**: Información personal y estadísticas
-3. **Habilidades**: Tecnologías y herramientas dominadas
-4. **Proyectos**: Portfolio de trabajos destacados
-5. **Experiencia**: Timeline de experiencia laboral y educación
-6. **Contacto**: Formulario de contacto e información de contacto
-
-## 🚀 Funcionalidades JavaScript
-
-- Navegación móvil responsive
-- Efectos de scroll y animaciones
-- Formulario de contacto con validación
-- Efecto de escritura en el título principal
-- Animaciones de habilidades y proyectos
-- Modo oscuro/claro
-- Botón de scroll to top
-- Preloader de página
-- Efectos parallax
-- Contadores animados
-
-## 📱 Responsive Design
-
-- **Desktop**: 1200px+
-- **Tablet**: 768px - 1199px
-- **Mobile**: 320px - 767px
-
-## 🌐 Despliegue
-
-Este portafolio está diseñado para ser desplegado en GitHub Pages. Para desplegarlo:
-
-1. Haz push de tu código a un repositorio de GitHub
-2. Ve a Settings > Pages
-3. Selecciona la rama principal como fuente
-4. Tu portafolio estará disponible en `https://tuusuario.github.io/turepositorio`
-
-## 🔧 Personalización
-
-### Colores
-Los colores principales están definidos en variables CSS en `:root`:
-```css
-:root {
-    --primary-color: #2563eb;
-    --secondary-color: #1e40af;
-    --accent-color: #3b82f6;
-    /* ... más variables */
-}
-```
-
-### Contenido
-- Edita `index.html` para cambiar el contenido
-- Modifica `style.css` para ajustar estilos
-- Personaliza `main.js` para cambiar funcionalidades
-
-## 📧 Contacto
-
-- **GitHub**: [@ESTEBANTRAN](https://github.com/ESTEBANTRAN)
-- **Email**: esteban.aulestia@example.com
-- **Ubicación**: Ibarra, Ecuador
-
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT. Puedes usarlo libremente para tu propio portafolio.
-
-## 🤝 Contribuciones
-
-Las contribuciones son bienvenidas. Si encuentras un bug o tienes una sugerencia, por favor abre un issue o envía un pull request.
-
-## 📈 Próximas Mejoras
-
-- [ ] Integración con API de GitHub para proyectos en tiempo real
-- [ ] Blog integrado
-- [ ] Sistema de filtros para proyectos
-- [ ] Más temas de color
-- [ ] PWA (Progressive Web App)
-- [ ] Integración con servicios de contacto reales
+> **Full Stack AI-Augmented Software Developer**  
+> Especialista en desarrollo web Full Stack (PHP/Laravel, CodeIgniter, Next.js, Nest.js, Node.js, Python), soluciones de software gubernamental/empresarial en producción y **10+ certificaciones oficiales Anthropic, Google Cloud & AWS** en integración de LLMs y protocolos MCP.
 
 ---
 
-**Desarrollado con ❤️ por Esteban Aulestia** 
+## 📌 Datos de Contacto & Disponibilidad
+
+| Parámetro | Detalle |
+|---|---|
+| **Ubicación** | Otavalo / Ibarra, Ecuador (UTC−5, Compatible con EE.UU. / Canadá) |
+| **Tarifa Nearshore** | **$10 – $12 / HR USD** (Economía Dolarizada) |
+| **Disponibilidad** | **Disponible para Trabajo Remoto Full-Time / Contratos** |
+| **Correo Electrónico** | [aulestiaesteban8@gmail.com](mailto:aulestiaesteban8@gmail.com) |
+| **Teléfono / WhatsApp** | [+593 987 297 841](https://wa.me/593987297841) |
+| **LinkedIn** | [linkedin.com/in/estebanaulestia](https://linkedin.com/in/estebanaulestia) |
+| **GitHub** | [@ESTEBANTRAN](https://github.com/ESTEBANTRAN) |
+
+---
+
+## 🛠️ Stack Tecnológico
+
+### Frontend & Backend Web
+- **Backend & Frameworks**: PHP (Laravel, CodeIgniter), Node.js, Nest.js, Next.js, Python, Java
+- **Frontend & Web**: React, JavaScript (ES6+), TypeScript, HTML5, CSS3, Bootstrap
+- **Bases de Datos**: MySQL, PostgreSQL, Microsoft SQL Server, Supabase
+
+### AI & Intelligence Orchestration
+- **Anthropic AI**: Claude API, Anthropic SDK, Model Context Protocol (MCP), AI Agents, Subagents
+- **Cloud AI Platforms**: Google Vertex AI, Amazon Bedrock, Prompt Engineering, LLM Integration
+
+### Herramientas & DevSecOps
+- **Dev Tools & Platforms**: Git, GitHub, VS Code, Postman, npm, pip, Figma
+- **Seguridad & Arquitectura**: Firmas Digitales, Control de Acceso por Roles (RBAC), RESTful API Design, Agile/Scrum
+
+---
+
+## 🚀 Proyectos Destacados
+
+1. **OSGO v3.0 — MOVIDELNOR E.P.** *(En Producción)*
+   - Sistema Web en Laravel + MySQL para la entidad pública de movilidad MOVIDELNOR E.P., coordinando operaciones de tránsito en 96 calles de Ibarra.
+   - Módulo de firmas digitales para autenticación y aprobación de órdenes de servicio en tiempo real.
+2. **GIBI-ITSI — Sistema Académico** *(En Producción)*
+   - Sistema Web Académico en CodeIgniter / PHP + Java + Bootstrap para la gestión del departamento de Bienestar Institucional del ITSI.
+3. **Empadronamiento Digital GAD Municipal de Ibarra** *(Completado)*
+   - Aplicación móvil de *Civic Tech* para el registro ciudadano y empadronamiento digital de parroquias urbanas del cantón Ibarra 2025.
+4. **Veci App** *(Open Source)*
+   - Aplicación móvil para conectividad vecinal y reportes comunitarios.
+5. **Auto Shutdown App** *(Desktop Utility)*
+   - Software de escritorio en C++ con Windows API para el apagado automático programado.
+6. **Dooly App OpenGL Engine** *(Game Dev)*
+   - Motor interactivo y renderizado 2D/3D en C++ utilizando OpenGL.
+
+---
+
+## 📜 Certificaciones Destacadas
+
+### Anthropic AI
+- *Claude Code 101 & Claude Code in Action* — Anthropic (2026)
+- *Claude with the Anthropic API* — Anthropic (2026)
+- *Model Context Protocol: Advanced Topics* — Anthropic (2026)
+- *Introduction to MCP · Agent Skills · Subagents* — Anthropic (2026)
+- *AI Fluency: Framework & Foundations* — Anthropic / UCC Ireland (2026)
+
+### Google Cloud & AWS
+- *Claude with Google Vertex AI* — Anthropic (2026)
+- *Prompt Design in Vertex AI (Skill Badge)* — Google Cloud (2026)
+- *Claude with Amazon Bedrock* — Anthropic (2026)
+- *AWS Cloud Practitioner Essentials* — Amazon Web Services (2026)
+
+### IBM SkillsBuild & Idiomas
+- *AI Trailblazer & Machine Learning Methods* — IBM SkillsBuild (2026)
+- *Inglés B1* — AITEC / SENESCYT Beca 120h (2026)
+
+---
+
+## 🎨 Estilo & Diseño del Portafolio
+
+El sitio web está diseñado basándose en la especificación estética **PixelCraft Industrial Tech Spec**:
+- **Paleta de Colores**: Fondo negro obsidiana (`#0A0A0A`), retícula técnica y acentos en amarillo industrial (`#FFD600`).
+- **Tipografía**: *Space Grotesk* para encabezados en mayúsculas sostenidas y *JetBrains Mono* para insignias y especificaciones.
+- **Fotografía de Perfil**: Foto sin fondo recortada (`profile_no_bg.png`) sobre marco industrial de coordenadas.
+- **Interacciones**: Cursor reticular de precisión, máquina de escribir multi-rol y notificaciones de envío.
+
+---
+
+## 🌐 Sitio Web Desplegado
+
+El portafolio se encuentra publicado en GitHub Pages:  
+🔗 **[https://estebantran.github.io/PORTAFOLIO.github.io/](https://estebantran.github.io/PORTAFOLIO.github.io/)**
+
+---
+
+*© 2026 Esteban Maximiliano Aulestia Andrade. Todos los derechos reservados.*
