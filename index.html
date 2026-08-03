@@ -3,312 +3,495 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Esteban Aulestia - Desarrollador de Software</title>
+    <meta name="description" content="Portafolio Profesional de Esteban Aulestia - Desarrollador de Software especializándose en Flutter, C++, Java, Python y Desarrollo Web.">
+    <meta name="author" content="Esteban Aulestia">
+    <title>Esteban Aulestia | Software Developer Portfolio</title>
+    
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body id="main-content">
-    <!-- Header -->
+<body id="top">
+    <!-- Interactive Background Particle Canvas -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Custom Glowing Mouse Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="custom-cursor-follower"></div>
+
+    <!-- Header Navigation -->
     <header class="header">
-        <nav class="nav">
-            <div class="nav-brand">
-                <h2>EA</h2>
-            </div>
+        <div class="container nav">
+            <a href="#top" class="nav-brand">
+                <div class="logo-box">EA</div>
+                <span class="brand-text">Esteban Aulestia</span>
+            </a>
+            
             <ul class="nav-menu">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#sobre-mi">Sobre Mí</a></li>
-                <li><a href="#habilidades">Habilidades</a></li>
-                <li><a href="#proyectos">Proyectos</a></li>
-                <li><a href="#experiencia">Experiencia</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+                <li><a href="#sobre-mi" class="nav-link">Sobre Mí</a></li>
+                <li><a href="#habilidades" class="nav-link">Habilidades</a></li>
+                <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
+                <li><a href="#experiencia" class="nav-link">Experiencia</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
             </ul>
-            <div class="nav-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
+
+            <div class="nav-actions">
+                <a href="CV_Aulestia_Andrade_Esteban_ATS2026_signed.pdf" class="btn-cv" target="_blank" download>
+                    <i class="fas fa-file-download"></i> Descargar CV
+                </a>
+                <button class="nav-toggle" aria-label="Abrir Menú">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
-        </nav>
+        </div>
     </header>
 
     <!-- Hero Section -->
     <section id="inicio" class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1 class="hero-title">Esteban Aulestia</h1>
-                <h2 class="hero-subtitle">Desarrollador de Software</h2>
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="pulse-dot"></span> Disponible para proyectos & pasantías
+                </div>
+                <h1 class="hero-title">
+                    Hola, soy <br>
+                    <span class="gradient-text">Esteban Aulestia</span>
+                </h1>
+                <h2 class="hero-subtitle">
+                    Especialista en <span class="typing-text"></span>
+                </h2>
                 <p class="hero-description">
-                    Transformando ideas complejas en experiencias interactivas y soluciones innovadoras
+                    Desarrollador de Software apasionado por transformar ideas complejas en aplicaciones móviles, de escritorio y experiencias web intuitivas, eficientes y de alto impacto visual.
                 </p>
                 <div class="hero-buttons">
-                    <a href="#proyectos" class="btn btn-primary">Ver Proyectos</a>
-                    <a href="#contacto" class="btn btn-secondary">Contactar</a>
+                    <a href="#proyectos" class="btn-primary">
+                        Explorar Proyectos <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#contacto" class="btn-secondary">
+                        <i class="fas fa-paper-plane"></i> Contactar
+                    </a>
                 </div>
             </div>
-            <div class="hero-image">
-                <div class="profile-image">
-                    <img src="https://avatars.githubusercontent.com/u/139495960?s=400&u=535b4e49b5c9e679929f330f3bca34a8f9bbfb8c&v=4" alt="Esteban Aulestia - Desarrollador de Software" class="profile-img">
+
+            <!-- Profile Photo (Backgroundless Cutout with Dynamic Glow) -->
+            <div class="hero-image-wrapper">
+                <div class="photo-glow-effect"></div>
+                <div class="photo-frame">
+                    <img src="profile_no_bg.png" alt="Esteban Aulestia" class="profile-cutout">
+                </div>
+
+                <!-- Floating Interactive Tech Tags -->
+                <div class="hero-tech-tag tag-flutter">
+                    <i class="fab fa-flutter" style="color: #47d5ff;"></i> Flutter Cross-Platform
+                </div>
+                <div class="hero-tech-tag tag-cpp">
+                    <i class="fas fa-code" style="color: #00599c;"></i> C++ & Systems
+                </div>
+                <div class="hero-tech-tag tag-java">
+                    <i class="fab fa-java" style="color: #f89820;"></i> Java & Architecture
+                </div>
+                <div class="hero-tech-tag tag-web">
+                    <i class="fab fa-js" style="color: #f7df1e;"></i> Modern Web Fullstack
                 </div>
             </div>
-        </div>
-        <div class="scroll-indicator">
-            <i class="fas fa-chevron-down"></i>
         </div>
     </section>
 
-    <!-- Sobre Mí -->
-    <section id="sobre-mi" class="about">
+    <!-- Sobre Mí Section -->
+    <section id="sobre-mi" class="section">
         <div class="container">
-            <h2 class="section-title">Sobre Mí</h2>
-            <div class="about-content">
-                <div class="about-text">
+            <div class="section-header">
+                <p class="section-subtitle">Conóceme Más</p>
+                <h2 class="section-title">Sobre Mí</h2>
+                <div class="title-line"></div>
+            </div>
+
+            <div class="about-card-wrapper">
+                <div class="glass-box about-text">
                     <p>
-                        Soy un desarrollador de software apasionado por crear soluciones innovadoras y experiencias de usuario excepcionales. 
-                        Actualmente me encuentro realizando mi pasantía en el Instituto Tecnológico Superior Ibarra, donde aplico mis conocimientos 
-                        en desarrollo de aplicaciones móviles y web.
+                        Soy estudiante de <strong>Ingeniería en Sistemas</strong> en el Instituto Tecnológico Superior Ibarra y desarrollador de software enfocado en crear soluciones tecnológicas eficientes, elegantes y con alto valor funcional.
                     </p>
                     <p>
-                        Me especializo en Flutter para desarrollo cross-platform, y tengo experiencia en múltiples tecnologías incluyendo 
-                        C++, Java, Python, PHP y desarrollo web moderno. Me encanta participar en game jams y colaborar en proyectos 
-                        de código abierto.
+                        Actualmente realizo mi pasantía en el <strong>Instituto Tecnológico Superior Ibarra</strong>, donde participo activamente en el diseño e implementación de sistemas de software institucional y desarrollo de aplicaciones cross-platform.
                     </p>
-                    <div class="about-stats">
-                        <div class="stat">
-                            <h3>9+</h3>
-                            <p>Repositorios</p>
+                    <p>
+                        Mi pasión abarca desde el desarrollo móvil nativo/multiplataforma con <strong>Flutter</strong> y <strong>React Native</strong>, hasta la programación gráfica con <strong>C++ y OpenGL</strong>, pasando por la creación de sistemas web robustos.
+                    </p>
+
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="9">0</span>
+                            <span class="stat-label">Repositorios GitHub</span>
                         </div>
-                        <div class="stat">
-                            <h3>3</h3>
-                            <p>Logros GitHub</p>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="15">0</span>
+                            <span class="stat-label">Tecnologías</span>
                         </div>
-                        <div class="stat">
-                            <h3>15+</h3>
-                            <p>Tecnologías</p>
+                        <div class="stat-item">
+                            <span class="stat-number" data-target="3">0</span>
+                            <span class="stat-label">Logros Destacados</span>
                         </div>
                     </div>
                 </div>
-                <div class="about-image">
-                    <div class="about-card">
-                        <h3>🎯 Enfoque</h3>
-                        <p>Desarrollo de aplicaciones móviles, juegos y soluciones tecnológicas innovadoras</p>
+
+                <div class="about-highlight-box">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Enfoque Profesional</h4>
+                            <p>Desarrollo móvil multiplataforma, aplicaciones de escritorio y soluciones web completas.</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon" style="background: rgba(139, 92, 246, 0.15); color: var(--accent-purple);">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Formación Superior</h4>
+                            <p>Ingeniería en Sistemas — Instituto Tecnológico Superior Ibarra (Ibarra, Ecuador).</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon" style="background: rgba(236, 72, 153, 0.15); color: var(--accent-pink);">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Proyectos Creativos</h4>
+                            <p>Desarrollo de videojuegos interactivos, Game Jams y contribución a iniciativas open source.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Habilidades -->
-    <section id="habilidades" class="skills">
+    <!-- Habilidades Técnicas Section -->
+    <section id="habilidades" class="section">
         <div class="container">
-            <h2 class="section-title">Habilidades Técnicas</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Lenguajes de Programación</h3>
-                    <div class="skill-items">
-                        <span class="skill-item">C++</span>
-                        <span class="skill-item">Java</span>
-                        <span class="skill-item">Python</span>
-                        <span class="skill-item">PHP</span>
-                        <span class="skill-item">JavaScript</span>
+            <div class="section-header">
+                <p class="section-subtitle">Stack de Tecnologías</p>
+                <h2 class="section-title">Habilidades Técnicas</h2>
+                <div class="title-line"></div>
+            </div>
+
+            <div class="skills-container">
+                <!-- Lenguajes -->
+                <div class="skill-category-card">
+                    <h3 class="skill-category-title">
+                        <i class="fas fa-code"></i> Lenguajes de Programación
+                    </h3>
+                    <div class="skill-tags">
+                        <div class="skill-chip"><i class="fas fa-cubes"></i> C++</div>
+                        <div class="skill-chip"><i class="fab fa-java"></i> Java</div>
+                        <div class="skill-chip"><i class="fab fa-python"></i> Python</div>
+                        <div class="skill-chip"><i class="fab fa-php"></i> PHP</div>
+                        <div class="skill-chip"><i class="fab fa-js"></i> JavaScript</div>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Desarrollo Web</h3>
-                    <div class="skill-items">
-                        <span class="skill-item">HTML5</span>
-                        <span class="skill-item">CSS3</span>
-                        <span class="skill-item">Bootstrap</span>
-                        <span class="skill-item">WordPress</span>
-                        <span class="skill-item">Apache</span>
+
+                <!-- Desarrollo Móvil -->
+                <div class="skill-category-card">
+                    <h3 class="skill-category-title">
+                        <i class="fas fa-mobile-alt"></i> Desarrollo Móvil
+                    </h3>
+                    <div class="skill-tags">
+                        <div class="skill-chip"><i class="fab fa-flutter"></i> Flutter</div>
+                        <div class="skill-chip"><i class="fab fa-react"></i> React Native</div>
+                        <div class="skill-chip"><i class="fas fa-layer-group"></i> Framework7</div>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Desarrollo Móvil</h3>
-                    <div class="skill-items">
-                        <span class="skill-item">Flutter</span>
-                        <span class="skill-item">Framework7</span>
-                        <span class="skill-item">React Native</span>
+
+                <!-- Desarrollo Web -->
+                <div class="skill-category-card">
+                    <h3 class="skill-category-title">
+                        <i class="fas fa-laptop-code"></i> Desarrollo Web
+                    </h3>
+                    <div class="skill-tags">
+                        <div class="skill-chip"><i class="fab fa-html5"></i> HTML5</div>
+                        <div class="skill-chip"><i class="fab fa-css3-alt"></i> CSS3</div>
+                        <div class="skill-chip"><i class="fab fa-bootstrap"></i> Bootstrap</div>
+                        <div class="skill-chip"><i class="fab fa-wordpress"></i> WordPress</div>
+                        <div class="skill-chip"><i class="fas fa-server"></i> Apache</div>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Bases de Datos</h3>
-                    <div class="skill-items">
-                        <span class="skill-item">MySQL</span>
-                        <span class="skill-item">MariaDB</span>
-                        <span class="skill-item">Firebase</span>
+
+                <!-- Bases de Datos -->
+                <div class="skill-category-card">
+                    <h3 class="skill-category-title">
+                        <i class="fas fa-database"></i> Bases de Datos
+                    </h3>
+                    <div class="skill-tags">
+                        <div class="skill-chip"><i class="fas fa-database"></i> MySQL</div>
+                        <div class="skill-chip"><i class="fas fa-server"></i> MariaDB</div>
+                        <div class="skill-chip"><i class="fas fa-fire"></i> Firebase</div>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Herramientas & Cloud</h3>
-                    <div class="skill-items">
-                        <span class="skill-item">Git</span>
-                        <span class="skill-item">Docker</span>
-                        <span class="skill-item">Google Cloud</span>
-                        <span class="skill-item">Azure</span>
+
+                <!-- Cloud & Herramientas -->
+                <div class="skill-category-card">
+                    <h3 class="skill-category-title">
+                        <i class="fas fa-tools"></i> Herramientas & Cloud
+                    </h3>
+                    <div class="skill-tags">
+                        <div class="skill-chip"><i class="fab fa-git-alt"></i> Git</div>
+                        <div class="skill-chip"><i class="fab fa-docker"></i> Docker</div>
+                        <div class="skill-chip"><i class="fab fa-google"></i> Google Cloud</div>
+                        <div class="skill-chip"><i class="fab fa-microsoft"></i> Azure</div>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Diseño & Multimedia</h3>
-                    <div class="skill-items">
-                        <span class="skill-item">Figma</span>
-                        <span class="skill-item">Adobe Illustrator</span>
-                        <span class="skill-item">Canva</span>
-                        <span class="skill-item">OpenGL</span>
+
+                <!-- Diseño & Multimedia -->
+                <div class="skill-category-card">
+                    <h3 class="skill-category-title">
+                        <i class="fas fa-paint-brush"></i> Diseño & Multimedia
+                    </h3>
+                    <div class="skill-tags">
+                        <div class="skill-chip"><i class="fab fa-figma"></i> Figma</div>
+                        <div class="skill-chip"><i class="fas fa-vector-square"></i> Illustrator</div>
+                        <div class="skill-chip"><i class="fas fa-palette"></i> Canva</div>
+                        <div class="skill-chip"><i class="fas fa-shapes"></i> OpenGL</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Proyectos -->
-    <section id="proyectos" class="projects">
+    <!-- Proyectos Destacados Section -->
+    <section id="proyectos" class="section">
         <div class="container">
-            <h2 class="section-title">Proyectos Destacados</h2>
+            <div class="section-header">
+                <p class="section-subtitle">Mi Trabajo</p>
+                <h2 class="section-title">Proyectos Destacados</h2>
+                <div class="title-line"></div>
+            </div>
+
             <div class="projects-grid">
+                <!-- Veci App -->
                 <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-mobile-alt"></i>
+                    <div class="project-banner">
+                        <i class="fas fa-users-cog"></i>
                     </div>
-                    <div class="project-content">
-                        <h3>Veci App</h3>
-                        <p>Aplicación móvil desarrollada con tecnologías web modernas para conectar vecinos y facilitar la comunicación comunitaria.</p>
-                        <div class="project-tech">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
+                    <div class="project-body">
+                        <h3 class="project-title">Veci App</h3>
+                        <p class="project-desc">
+                            Aplicación móvil enfocada en la comunicación comunitaria y conectividad de vecindarios, optimizando la interacción y reportes vecinales.
+                        </p>
+                        <div class="project-tech-stack">
+                            <span class="tech-badge">HTML5</span>
+                            <span class="tech-badge">CSS3</span>
+                            <span class="tech-badge">JavaScript</span>
+                            <span class="tech-badge">Mobile</span>
                         </div>
-                        <a href="https://github.com/ESTEBANTRAN/veci_app2" class="project-link" target="_blank">
-                            <i class="fab fa-github"></i> Ver en GitHub
-                        </a>
+                        <div class="project-footer">
+                            <a href="https://github.com/ESTEBANTRAN/veci_app2" target="_blank" class="project-link-btn">
+                                <i class="fab fa-github"></i> Código en GitHub <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Auto Shutdown App -->
                 <div class="project-card">
-                    <div class="project-image">
+                    <div class="project-banner" style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(236, 72, 153, 0.2) 100%);">
                         <i class="fas fa-power-off"></i>
                     </div>
-                    <div class="project-content">
-                        <h3>Auto Shutdown App</h3>
-                        <p>Aplicación de escritorio para el apagado automático de PC con interfaz intuitiva y múltiples opciones de programación.</p>
-                        <div class="project-tech">
-                            <span>C++</span>
-                            <span>Windows API</span>
+                    <div class="project-body">
+                        <h3 class="project-title">Auto Shutdown App</h3>
+                        <p class="project-desc">
+                            Aplicación de escritorio optimizada desarrollada en C++ para la automatización y programación inteligente del apagado del equipo PC.
+                        </p>
+                        <div class="project-tech-stack">
+                            <span class="tech-badge">C++</span>
+                            <span class="tech-badge">Windows API</span>
+                            <span class="tech-badge">System Utilities</span>
                         </div>
-                        <a href="https://github.com/ESTEBANTRAN/ApagadoAutomaticoPC_AutoShutdownApp" class="project-link" target="_blank">
-                            <i class="fab fa-github"></i> Ver en GitHub
-                        </a>
+                        <div class="project-footer">
+                            <a href="https://github.com/ESTEBANTRAN/ApagadoAutomaticoPC_AutoShutdownApp" target="_blank" class="project-link-btn">
+                                <i class="fab fa-github"></i> Código en GitHub <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Dooly App -->
                 <div class="project-card">
-                    <div class="project-image">
+                    <div class="project-banner" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.2) 0%, rgba(6, 182, 212, 0.2) 100%);">
                         <i class="fas fa-gamepad"></i>
                     </div>
-                    <div class="project-content">
-                        <h3>Dooly App</h3>
-                        <p>Aplicación de juego desarrollada en C++ con OpenGL, demostrando habilidades en programación de gráficos y lógica de juego.</p>
-                        <div class="project-tech">
-                            <span>C++</span>
-                            <span>OpenGL</span>
-                            <span>Game Development</span>
+                    <div class="project-body">
+                        <h3 class="project-title">Dooly App</h3>
+                        <p class="project-desc">
+                            Proyecto interactivo de videojuegos y gráficos por computadora en 2D/3D utilizando C++ con la librería OpenGL.
+                        </p>
+                        <div class="project-tech-stack">
+                            <span class="tech-badge">C++</span>
+                            <span class="tech-badge">OpenGL</span>
+                            <span class="tech-badge">Game Dev</span>
                         </div>
-                        <a href="https://github.com/ESTEBANTRAN/dooly_app" class="project-link" target="_blank">
-                            <i class="fab fa-github"></i> Ver en GitHub
-                        </a>
+                        <div class="project-footer">
+                            <a href="https://github.com/ESTEBANTRAN/dooly_app" target="_blank" class="project-link-btn">
+                                <i class="fab fa-github"></i> Código en GitHub <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
+
+                <!-- AdminLTE MVC -->
                 <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-laptop-code"></i>
+                    <div class="project-banner" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.2) 0%, rgba(236, 72, 153, 0.2) 100%);">
+                        <i class="fas fa-chart-line"></i>
                     </div>
-                    <div class="project-content">
-                        <h3>AdminLTE MVC</h3>
-                        <p>Implementación de patrón MVC utilizando AdminLTE para crear interfaces de administración robustas y escalables.</p>
-                        <div class="project-tech">
-                            <span>PHP</span>
-                            <span>MVC</span>
-                            <span>AdminLTE</span>
+                    <div class="project-body">
+                        <h3 class="project-title">AdminLTE MVC Dashboard</h3>
+                        <p class="project-desc">
+                            Arquitectura Web escalable con patrón MVC y AdminLTE para dashboards de administración modular y gestión de datos.
+                        </p>
+                        <div class="project-tech-stack">
+                            <span class="tech-badge">PHP</span>
+                            <span class="tech-badge">MVC Architecture</span>
+                            <span class="tech-badge">AdminLTE</span>
+                            <span class="tech-badge">MySQL</span>
                         </div>
-                        <a href="https://github.com/ESTEBANTRAN/adminLTE-MVC" class="project-link" target="_blank">
-                            <i class="fab fa-github"></i> Ver en GitHub
-                        </a>
+                        <div class="project-footer">
+                            <a href="https://github.com/ESTEBANTRAN/adminLTE-MVC" target="_blank" class="project-link-btn">
+                                <i class="fab fa-github"></i> Código en GitHub <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Experiencia -->
-    <section id="experiencia" class="experience">
+    <!-- Experiencia & Educación Timeline Section -->
+    <section id="experiencia" class="section">
         <div class="container">
-            <h2 class="section-title">Experiencia & Educación</h2>
+            <div class="section-header">
+                <p class="section-subtitle">Trayectoria</p>
+                <h2 class="section-title">Experiencia & Educación</h2>
+                <div class="title-line"></div>
+            </div>
+
             <div class="timeline">
+                <!-- Item 1 -->
                 <div class="timeline-item">
+                    <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <h3>Pasantía en Desarrollo de Software</h3>
-                        <h4>Instituto Tecnológico Superior Ibarra</h4>
-                        <p class="timeline-date">2024 - Presente</p>
-                        <p>Desarrollo de aplicaciones móviles y web, implementación de soluciones tecnológicas innovadoras y colaboración en proyectos institucionales.</p>
+                        <div class="timeline-card">
+                            <span class="timeline-date">2024 - Presente</span>
+                            <h3 class="timeline-role">Pasantía en Desarrollo de Software</h3>
+                            <h4 class="timeline-company">Instituto Tecnológico Superior Ibarra</h4>
+                            <p class="timeline-desc">
+                                Desarrollo activo de aplicaciones móviles y sistemas web institucionales, optimizando la experiencia digital e implementando soluciones tecnológicas de alto rendimiento.
+                            </p>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Item 2 -->
                 <div class="timeline-item">
+                    <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <h3>Desarrollador Freelance</h3>
-                        <h4>Proyectos Independientes</h4>
-                        <p class="timeline-date">2023 - Presente</p>
-                        <p>Desarrollo de aplicaciones móviles con Flutter, creación de sitios web personalizados y participación en game jams.</p>
+                        <div class="timeline-card">
+                            <span class="timeline-date">2023 - Presente</span>
+                            <h3 class="timeline-role">Desarrollador Freelance</h3>
+                            <h4 class="timeline-company">Proyectos Independientes</h4>
+                            <p class="timeline-desc">
+                                Creación de software a medida, desarrollo de aplicaciones multiplataforma con Flutter, sitios web modernos y participación en hackathons y game jams.
+                            </p>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Item 3 -->
                 <div class="timeline-item">
+                    <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <h3>Estudiante de Ingeniería en Sistemas</h3>
-                        <h4>Instituto Tecnológico Superior Ibarra</h4>
-                        <p class="timeline-date">2021 - Presente</p>
-                        <p>Formación académica en desarrollo de software, bases de datos, redes y tecnologías emergentes.</p>
+                        <div class="timeline-card">
+                            <span class="timeline-date">2021 - Presente</span>
+                            <h3 class="timeline-role">Ingeniería en Sistemas</h3>
+                            <h4 class="timeline-company">Instituto Tecnológico Superior Ibarra</h4>
+                            <p class="timeline-desc">
+                                Formación académica integral en ingeniería de software, arquitectura de sistemas, bases de datos avanzadas, redes y programación orientada a objetos.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contacto -->
-    <section id="contacto" class="contact">
+    <!-- Contacto Section -->
+    <section id="contacto" class="section">
         <div class="container">
-            <h2 class="section-title">¿Trabajemos Juntos?</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Información de Contacto</h3>
-                    <div class="contact-item">
-                        <i class="fab fa-github"></i>
-                        <a href="https://github.com/ESTEBANTRAN" target="_blank">@ESTEBANTRAN</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>esteban.aulestia@example.com</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Ibarra, Ecuador</span>
-                    </div>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+            <div class="section-header">
+                <p class="section-subtitle">¿Tienes un proyecto en mente?</p>
+                <h2 class="section-title">Hablemos & Trabajemos Juntos</h2>
+                <div class="title-line"></div>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info-cards">
+                    <a href="https://github.com/ESTEBANTRAN" target="_blank" class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>GitHub</h4>
+                            <p>@ESTEBANTRAN</p>
+                        </div>
+                    </a>
+
+                    <a href="mailto:esteban.aulestia@example.com" class="contact-card">
+                        <div class="contact-icon" style="background: rgba(6, 182, 212, 0.15); color: var(--accent-cyan);">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Correo Electrónico</h4>
+                            <p>esteban.aulestia@example.com</p>
+                        </div>
+                    </a>
+
+                    <div class="contact-card">
+                        <div class="contact-icon" style="background: rgba(236, 72, 153, 0.15); color: var(--accent-pink);">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Ubicación</h4>
+                            <p>Ibarra, Ecuador</p>
+                        </div>
                     </div>
                 </div>
-                <div class="contact-form">
+
+                <!-- Formulario -->
+                <div class="form-glass">
                     <form id="contactForm">
                         <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+                            <label for="name" class="form-label">Tu Nombre</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Ej. Juan Pérez" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Tu email" required>
+                            <label for="email" class="form-label">Tu Email</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="juan@ejemplo.com" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" id="subject" name="subject" placeholder="Asunto" required>
+                            <label for="subject" class="form-label">Asunto</label>
+                            <input type="text" id="subject" name="subject" class="form-control" placeholder="Ej. Propuesta de proyecto" required>
                         </div>
                         <div class="form-group">
-                            <textarea id="message" name="message" placeholder="Tu mensaje" rows="5" required></textarea>
+                            <label for="message" class="form-label">Mensaje</label>
+                            <textarea id="message" name="message" class="form-control" placeholder="Cuéntame sobre tu proyecto o consulta..." required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                        <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
+                            Enviar Mensaje <i class="fas fa-paper-plane"></i>
+                        </button>
                     </form>
                 </div>
             </div>
@@ -321,27 +504,31 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <h3>Esteban Aulestia</h3>
-                    <p>Desarrollador de Software</p>
+                    <p style="color: var(--text-secondary); margin-top: 0.25rem;">Software Developer</p>
                 </div>
-                <div class="footer-links">
-                    <a href="#inicio">Inicio</a>
-                    <a href="#sobre-mi">Sobre Mí</a>
-                    <a href="#proyectos">Proyectos</a>
-                    <a href="#contacto">Contacto</a>
-                    <a href="https://estebantran.github.io/proyecto_prueba.github.io//riot.txt" target="_blank">riot.txt</a>
-                </div>
-                <div class="footer-social">
-                    <a href="https://github.com/ESTEBANTRAN" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
+
+                <div class="footer-socials">
+                    <a href="https://github.com/ESTEBANTRAN" target="_blank" class="social-circle" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="CV_Aulestia_Andrade_Esteban_ATS2026_signed.pdf" target="_blank" class="social-circle" aria-label="CV">
+                        <i class="fas fa-file-alt"></i>
+                    </a>
                 </div>
             </div>
+
             <div class="footer-bottom">
-                <p>&copy; 2024 Esteban Aulestia. Todos los derechos reservados.</p>
+                <p>&copy; 2026 Esteban Aulestia Andrade. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Scroll To Top Button -->
+    <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
     <script src="main.js"></script>
 </body>
 </html>

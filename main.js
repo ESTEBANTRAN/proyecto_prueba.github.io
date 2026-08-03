@@ -1,509 +1,411 @@
-// Esperar a que el DOM esté completamente cargado
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // Inicializar todas las funcionalidades
-    initNavigation();
-    initScrollEffects();
+/* ==========================================================================
+   ESTEBAN AULESTIA - PORTFOLIO INTERACTIVE LOGIC (COSMOS THEME)
+   ========================================================================== */
+
+document.addEventListener('DOMContentLoaded', () => {
+    initParticlesCanvas();
+    initCustomCursor();
+    initTypewriter();
+    initHeaderScroll();
+    initMobileNav();
+    initScrollReveal();
+    initStatsCounter();
     initContactForm();
-    initTypingEffect();
-    initSkillAnimation();
-    initProjectCards();
-    
-    // Añadir clase reveal a elementos para animaciones
-    addRevealClasses();
+    initScrollToTop();
 });
 
-// Función para inicializar la navegación
-function initNavigation() {
-    const header = document.querySelector('.header');
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-    
-    // Navegación móvil
-    if (navToggle) {
-        navToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-            navToggle.classList.toggle('active');
-        });
+/* ==========================================================================
+   1. PARTICLES CANVAS BACKGROUND
+   ========================================================================== */
+function initParticlesCanvas() {
+    const canvas = document.getElementById('particles-canvas');
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    let width, height;
+    let particles = [];
+    let mouse = { x: null, y: null, radius: 150 };
+
+    function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
     }
-    
-    // Cambiar estilo del header al hacer scroll
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 100) {
+
+    window.addEventListener('resize', resize);
+    resize();
+
+    window.addEventListener('mousemove', (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+    });
+
+    window.addEventListener('mouseleave', () => {
+        mouse.x = null;
+        mouse.y = null;
+    });
+
+    class Particle {
+        constructor() {
+            this.x = Math.random() * width;
+            this.y = Math.random() * height;
+            this.size = Math.random() * 2 + 1;
+            this.vx = (Math.random() - 0.5) * 0.8;
+            this.vy = (Math.random() - 0.5) * 0.8;
+            this.color = Math.random() > 0.5 ? 'rgba(6, 182, 212, ' : 'rgba(139, 92, 246, ';
+            this.baseAlpha = Math.random() * 0.5 + 0.2;
+        }
+
+        update() {
+            this.x += this.vx;
+            this.y += this.vy;
+
+            if (this.x < 0) this.x = width;
+            if (this.x > width) this.x = 0;
+            if (this.y < 0) this.y = height;
+            if (this.y > height) this.y = 0;
+
+            // Mouse interaction
+            if (mouse.x !== null && mouse.y !== null) {
+                let dx = mouse.x - this.x;
+                let dy = mouse.y - this.y;
+                let dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < mouse.radius) {
+                    let force = (mouse.radius - dist) / mouse.radius;
+                    this.x -= (dx / dist) * force * 3;
+                    this.y -= (dy / dist) * force * 3;
+                }
+            }
+        }
+
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fillStyle = this.color + this.baseAlpha + ')';
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = this.color + '0.8)';
+            ctx.fill();
+            ctx.shadowBlur = 0;
+        }
+    }
+
+    const particleCount = Math.min(Math.floor(window.innerWidth / 15), 90);
+    for (let i = 0; i < particleCount; i++) {
+        particles.push(new Particle());
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        // Draw connections
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+                let dx = particles[i].x - particles[j].x;
+                let dy = particles[i].y - particles[j].y;
+                let dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < 130) {
+                    let alpha = (1 - dist / 130) * 0.25;
+                    ctx.beginPath();
+                    ctx.moveTo(particles[i].x, particles[i].y);
+                    ctx.lineTo(particles[j].x, particles[j].y);
+                    ctx.strokeStyle = `rgba(139, 92, 246, ${alpha})`;
+                    ctx.lineWidth = 0.8;
+                    ctx.stroke();
+                }
+            }
+        }
+
+        particles.forEach(p => {
+            p.update();
+            p.draw();
+        });
+
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+}
+
+/* ==========================================================================
+   2. CUSTOM GLOW CURSOR & FOLLOWER
+   ========================================================================== */
+function initCustomCursor() {
+    const cursor = document.querySelector('.custom-cursor');
+    const follower = document.querySelector('.custom-cursor-follower');
+    if (!cursor || !follower) return;
+
+    let mouseX = 0, mouseY = 0;
+    let followerX = 0, followerY = 0;
+
+    window.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+
+        cursor.style.left = `${mouseX}px`;
+        cursor.style.top = `${mouseY}px`;
+    });
+
+    function renderFollower() {
+        followerX += (mouseX - followerX) * 0.2;
+        followerY += (mouseY - followerY) * 0.2;
+
+        follower.style.left = `${followerX}px`;
+        follower.style.top = `${followerY}px`;
+
+        requestAnimationFrame(renderFollower);
+    }
+    renderFollower();
+
+    // Hover effect on interactive elements
+    const hoverTargets = document.querySelectorAll('a, button, .project-card, .skill-chip, .info-card, .contact-card');
+    hoverTargets.forEach(target => {
+        target.addEventListener('mouseenter', () => {
+            cursor.style.width = '45px';
+            cursor.style.height = '45px';
+            cursor.style.borderColor = 'var(--accent-pink)';
+        });
+        target.addEventListener('mouseleave', () => {
+            cursor.style.width = '20px';
+            cursor.style.height = '20px';
+            cursor.style.borderColor = 'var(--accent-cyan)';
+        });
+    });
+}
+
+/* ==========================================================================
+   3. TYPEWRITER EFFECT
+   ========================================================================== */
+function initTypewriter() {
+    const target = document.querySelector('.typing-text');
+    if (!target) return;
+
+    const roles = [
+        'Desarrollo Móvil (Flutter)',
+        'Programación C++ & Java',
+        'Desarrollo Web Fullstack',
+        'OpenGL & Game Dev'
+    ];
+
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let speed = 100;
+
+    function type() {
+        const currentRole = roles[roleIndex];
+
+        if (isDeleting) {
+            target.textContent = currentRole.substring(0, charIndex - 1);
+            charIndex--;
+            speed = 50;
+        } else {
+            target.textContent = currentRole.substring(0, charIndex + 1);
+            charIndex++;
+            speed = 100;
+        }
+
+        if (!isDeleting && charIndex === currentRole.length) {
+            isDeleting = true;
+            speed = 2000; // Pause at end
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+            speed = 500;
+        }
+
+        setTimeout(type, speed);
+    }
+
+    setTimeout(type, 800);
+}
+
+/* ==========================================================================
+   4. HEADER & NAV SCROLL LOGIC
+   ========================================================================== */
+function initHeaderScroll() {
+    const header = document.querySelector('.header');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
-    });
-    
-    // Navegación suave para enlaces internos
-    const navLinks = document.querySelectorAll('a[href^="#"]');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                const headerHeight = header.offsetHeight;
-                const targetPosition = targetSection.offsetTop - headerHeight;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-                
-                // Cerrar menú móvil si está abierto
-                if (navMenu.classList.contains('active')) {
-                    navMenu.classList.remove('active');
-                    navToggle.classList.remove('active');
-                }
-            }
-        });
-    });
-}
 
-// Función para efectos de scroll
-function initScrollEffects() {
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-menu a');
-    
-    // Observador de intersección para animaciones
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('reveal', 'active');
-                
-                // Actualizar navegación activa
-                const targetId = entry.target.getAttribute('id');
-                updateActiveNav(targetId);
+        // Active link tracking
+        let currentSectionId = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 120;
+            const sectionHeight = section.offsetHeight;
+            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                currentSectionId = section.getAttribute('id');
             }
         });
-    }, observerOptions);
-    
-    // Observar todas las secciones
-    sections.forEach(section => {
-        observer.observe(section);
-    });
-    
-    // Función para actualizar navegación activa
-    function updateActiveNav(activeId) {
+
         navLinks.forEach(link => {
             link.classList.remove('active');
-            if (link.getAttribute('href') === `#${activeId}`) {
+            if (link.getAttribute('href') === `#${currentSectionId}`) {
                 link.classList.add('active');
             }
         });
-    }
-}
-
-// Función para inicializar el formulario de contacto
-function initContactForm() {
-    const contactForm = document.getElementById('contactForm');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Obtener datos del formulario
-            const formData = new FormData(this);
-            const name = formData.get('name');
-            const email = formData.get('email');
-            const subject = formData.get('subject');
-            const message = formData.get('message');
-            
-            // Validación básica
-            if (!name || !email || !subject || !message) {
-                showNotification('Por favor, completa todos los campos', 'error');
-                return;
-            }
-            
-            if (!isValidEmail(email)) {
-                showNotification('Por favor, ingresa un email válido', 'error');
-                return;
-            }
-            
-            // Simular envío (aquí puedes integrar con un servicio real)
-            showNotification('Enviando mensaje...', 'info');
-            
-            setTimeout(() => {
-                showNotification('¡Mensaje enviado con éxito! Te contactaremos pronto.', 'success');
-                contactForm.reset();
-            }, 2000);
-        });
-    }
-}
-
-// Función para validar email
-function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-}
-
-// Función para mostrar notificaciones
-function showNotification(message, type = 'info') {
-    // Crear elemento de notificación
-    const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
-    notification.innerHTML = `
-        <div class="notification-content">
-            <span class="notification-message">${message}</span>
-            <button class="notification-close">&times;</button>
-        </div>
-    `;
-    
-    // Estilos para la notificación
-    notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: ${type === 'success' ? '#10b981' : type === 'error' ? '#ef4444' : '#3b82f6'};
-        color: white;
-        padding: 1rem 1.5rem;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        z-index: 10000;
-        max-width: 400px;
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-    `;
-    
-    // Añadir al DOM
-    document.body.appendChild(notification);
-    
-    // Animar entrada
-    setTimeout(() => {
-        notification.style.transform = 'translateX(0)';
-    }, 100);
-    
-    // Botón de cerrar
-    const closeBtn = notification.querySelector('.notification-close');
-    closeBtn.addEventListener('click', () => {
-        notification.style.transform = 'translateX(100%)';
-        setTimeout(() => {
-            document.body.removeChild(notification);
-        }, 300);
     });
-    
-    // Auto-remover después de 5 segundos
-    setTimeout(() => {
-        if (document.body.contains(notification)) {
-            notification.style.transform = 'translateX(100%)';
-            setTimeout(() => {
-                if (document.body.contains(notification)) {
-                    document.body.removeChild(notification);
-                }
-            }, 300);
-        }
-    }, 5000);
 }
 
-// Función para efecto de escritura en el título
-function initTypingEffect() {
-    const heroTitle = document.querySelector('.hero-title');
-    if (!heroTitle) return;
-    
-    const text = heroTitle.textContent;
-    heroTitle.textContent = '';
-    heroTitle.style.borderRight = '2px solid white';
-    
-    let i = 0;
-    const typeWriter = () => {
-        if (i < text.length) {
-            heroTitle.textContent += text.charAt(i);
-            i++;
-            setTimeout(typeWriter, 100);
-        } else {
-            // Efecto de parpadeo del cursor
-            setInterval(() => {
-                heroTitle.style.borderRight = heroTitle.style.borderRight === '2px solid white' ? '2px solid transparent' : '2px solid white';
-            }, 500);
-        }
-    };
-    
-    // Iniciar efecto después de un pequeño delay
-    setTimeout(typeWriter, 500);
+/* ==========================================================================
+   5. MOBILE MENU TOGGLE
+   ========================================================================== */
+function initMobileNav() {
+    const toggleBtn = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+
+    if (!toggleBtn || !navMenu) return;
+
+    toggleBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+        });
+    });
 }
 
-// Función para animar habilidades
-function initSkillAnimation() {
-    const skillItems = document.querySelectorAll('.skill-item');
-    
-    const skillObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
+/* ==========================================================================
+   6. SCROLL REVEAL ANIMATIONS
+   ========================================================================== */
+function initScrollReveal() {
+    const revealElements = document.querySelectorAll(
+        '.section-header, .glass-box, .info-card, .skill-category-card, .project-card, .timeline-card, .contact-card, .form-glass'
+    );
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
             if (entry.isIntersecting) {
-                setTimeout(() => {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'scale(1)';
-                }, index * 100);
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    revealElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(35px)';
+        el.style.transition = 'opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+        observer.observe(el);
+    });
+}
+
+/* ==========================================================================
+   7. STATS ANIMATED COUNTER
+   ========================================================================== */
+function initStatsCounter() {
+    const statNumbers = document.querySelectorAll('.stat-number');
+    if (statNumbers.length === 0) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const target = parseInt(entry.target.getAttribute('data-target'));
+                let count = 0;
+                const duration = 1500;
+                const stepTime = duration / target;
+
+                const timer = setInterval(() => {
+                    count++;
+                    entry.target.textContent = count + '+';
+                    if (count >= target) {
+                        clearInterval(timer);
+                    }
+                }, stepTime);
+
+                observer.unobserve(entry.target);
             }
         });
     }, { threshold: 0.5 });
-    
-    skillItems.forEach(item => {
-        item.style.opacity = '0';
-        item.style.transform = 'scale(0.8)';
-        item.style.transition = 'all 0.3s ease';
-        skillObserver.observe(item);
-    });
+
+    statNumbers.forEach(num => observer.observe(num));
 }
 
-// Función para animar tarjetas de proyectos
-function initProjectCards() {
-    const projectCards = document.querySelectorAll('.project-card');
-    
-    projectCards.forEach((card, index) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = 'all 0.6s ease';
-        
-        const cardObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }, index * 200);
-                }
-            });
-        }, { threshold: 0.3 });
-        
-        cardObserver.observe(card);
-    });
-}
+/* ==========================================================================
+   8. CONTACT FORM INTERACTION
+   ========================================================================== */
+function initContactForm() {
+    const form = document.getElementById('contactForm');
+    if (!form) return;
 
-// Función para añadir clases reveal
-function addRevealClasses() {
-    const elements = document.querySelectorAll('.section-title, .about-content, .skills-grid, .projects-grid, .timeline, .contact-content');
-    
-    elements.forEach(element => {
-        element.classList.add('reveal');
-    });
-}
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
 
-// Función para contar estadísticas
-function animateCounters() {
-    const counters = document.querySelectorAll('.stat h3');
-    
-    counters.forEach(counter => {
-        const target = parseInt(counter.textContent);
-        const increment = target / 100;
-        let current = 0;
-        
-        const updateCounter = () => {
-            if (current < target) {
-                current += increment;
-                counter.textContent = Math.ceil(current) + '+';
-                requestAnimationFrame(updateCounter);
-            } else {
-                counter.textContent = target + '+';
-            }
-        };
-        
-        updateCounter();
-    });
-}
+        const btn = form.querySelector('button[type="submit"]');
+        const originalText = btn.innerHTML;
 
-// Función para efecto parallax en el hero
-function initParallax() {
-    const hero = document.querySelector('.hero');
-    if (!hero) return;
-    
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const rate = scrolled * -0.5;
-        hero.style.transform = `translateY(${rate}px)`;
-    });
-}
+        btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Enviando...`;
+        btn.disabled = true;
 
-// Función para modo oscuro (opcional)
-function initDarkMode() {
-    const darkModeToggle = document.createElement('button');
-    darkModeToggle.innerHTML = '🌙';
-    darkModeToggle.className = 'dark-mode-toggle';
-    darkModeToggle.style.cssText = `
-        position: fixed;
-        top: 100px;
-        right: 20px;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        border: none;
-        background: var(--primary-color);
-        color: white;
-        cursor: pointer;
-        z-index: 1000;
-        font-size: 1.2rem;
-        transition: all 0.3s ease;
-    `;
-    
-    document.body.appendChild(darkModeToggle);
-    
-    let isDark = false;
-    darkModeToggle.addEventListener('click', () => {
-        isDark = !isDark;
-        document.body.classList.toggle('dark-mode');
-        darkModeToggle.innerHTML = isDark ? '☀️' : '🌙';
-    });
-}
-
-// Función para preloader
-function initPreloader() {
-    const preloader = document.createElement('div');
-    preloader.className = 'preloader';
-    preloader.innerHTML = `
-        <div class="preloader-content">
-            <div class="spinner"></div>
-            <p>Cargando...</p>
-        </div>
-    `;
-    
-    preloader.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: var(--bg-primary);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 10000;
-        transition: opacity 0.5s ease;
-    `;
-    
-    document.body.appendChild(preloader);
-    
-    // Ocultar preloader cuando la página esté cargada
-    window.addEventListener('load', () => {
         setTimeout(() => {
-            preloader.style.opacity = '0';
-            setTimeout(() => {
-                document.body.removeChild(preloader);
-            }, 500);
-        }, 1000);
+            showToast('¡Mensaje enviado con éxito! Me pondré en contacto contigo pronto.', 'success');
+            form.reset();
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+        }, 1500);
     });
 }
 
-// Función para scroll to top
-function initScrollToTop() {
-    const scrollBtn = document.createElement('button');
-    scrollBtn.innerHTML = '↑';
-    scrollBtn.className = 'scroll-to-top';
-    scrollBtn.style.cssText = `
+function showToast(message, type = 'info') {
+    const toast = document.createElement('div');
+    toast.style.cssText = `
         position: fixed;
-        bottom: 20px;
-        right: 20px;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        border: none;
-        background: var(--primary-color);
-        color: white;
-        cursor: pointer;
-        z-index: 1000;
-        font-size: 1.5rem;
+        bottom: 30px;
+        right: 30px;
+        padding: 1rem 1.75rem;
+        background: ${type === 'success' ? 'rgba(16, 185, 129, 0.95)' : 'rgba(6, 182, 212, 0.95)'};
+        color: #fff;
+        border-radius: 12px;
+        font-family: var(--font-sans);
+        font-weight: 600;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        z-index: 10000;
+        transform: translateY(100px);
         opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
+        transition: all 0.4s ease;
+        backdrop-filter: blur(10px);
     `;
-    
-    document.body.appendChild(scrollBtn);
-    
-    // Mostrar/ocultar botón según scroll
+    toast.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
+
+    document.body.appendChild(toast);
+
+    requestAnimationFrame(() => {
+        toast.style.transform = 'translateY(0)';
+        toast.style.opacity = '1';
+    });
+
+    setTimeout(() => {
+        toast.style.transform = 'translateY(100px)';
+        toast.style.opacity = '0';
+        setTimeout(() => toast.remove(), 400);
+    }, 4000);
+}
+
+/* ==========================================================================
+   9. SCROLL TO TOP BUTTON
+   ========================================================================== */
+function initScrollToTop() {
+    const btn = document.getElementById('scrollTopBtn');
+    if (!btn) return;
+
     window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
-            scrollBtn.style.opacity = '1';
-            scrollBtn.style.visibility = 'visible';
+        if (window.scrollY > 400) {
+            btn.classList.add('visible');
         } else {
-            scrollBtn.style.opacity = '0';
-            scrollBtn.style.visibility = 'hidden';
+            btn.classList.remove('visible');
         }
     });
-    
-    // Scroll to top
-    scrollBtn.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
+
+    btn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 }
-
-// Inicializar funcionalidades adicionales cuando sea necesario
-document.addEventListener('DOMContentLoaded', function() {
-    // Inicializar funcionalidades adicionales
-    initParallax();
-    initDarkMode();
-    initPreloader();
-    initScrollToTop();
-    
-    // Animar contadores cuando estén visibles
-    const statsSection = document.querySelector('.about-stats');
-    if (statsSection) {
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateCounters();
-                    statsObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-        
-        statsObserver.observe(statsSection);
-    }
-});
-
-// Función para manejar errores de carga de imágenes
-window.addEventListener('error', function(e) {
-    if (e.target.tagName === 'IMG') {
-        e.target.style.display = 'none';
-        console.log('Error al cargar imagen:', e.target.src);
-    }
-}, true);
-
-// Función para mejorar la accesibilidad
-function improveAccessibility() {
-    // Añadir atributos ARIA a elementos interactivos
-    const buttons = document.querySelectorAll('button, .btn');
-    buttons.forEach(button => {
-        if (!button.getAttribute('aria-label')) {
-            button.setAttribute('aria-label', button.textContent.trim());
-        }
-    });
-    
-    // Añadir skip links para navegación por teclado
-    const skipLink = document.createElement('a');
-    skipLink.href = '#main-content';
-    skipLink.textContent = 'Saltar al contenido principal';
-    skipLink.style.cssText = `
-        position: absolute;
-        top: -40px;
-        left: 6px;
-        background: var(--primary-color);
-        color: white;
-        padding: 8px;
-        text-decoration: none;
-        border-radius: 4px;
-        z-index: 10001;
-        transition: top 0.3s ease;
-    `;
-    
-    skipLink.addEventListener('focus', () => {
-        skipLink.style.top = '6px';
-    });
-    
-    skipLink.addEventListener('blur', () => {
-        skipLink.style.top = '-40px';
-    });
-    
-    document.body.insertBefore(skipLink, document.body.firstChild);
-}
-
-// Mejorar accesibilidad cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', improveAccessibility);
